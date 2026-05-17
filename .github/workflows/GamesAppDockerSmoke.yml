@@ -1,0 +1,17 @@
+name: GamesApp repo smoke
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+
+jobs:
+  checkout:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Presence checks
+        run: |
+          test -f docker-compose.shared.yml
+          test -f GAA.sln

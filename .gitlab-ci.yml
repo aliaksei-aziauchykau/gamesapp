@@ -1,0 +1,40 @@
+default:
+  image: mcr.microsoft.com/dotnet/sdk:8.0
+
+variables:
+  DOTNET_CLI_TELEMETRY_OPTOUT: "1"
+
+stages:
+  - build
+  - test
+
+build-api:
+  stage: build
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_BRANCH == "main"
+    - if: $CI_COMMIT_BRANCH == "master"
+  script:
+    - dotnet build GAA.sln -c Release
+
+test-api:
+  stage: test
+  needs: [build-api]
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_BRANCH == "main"
+    - if: $CI_COMMIT_BRANCH == "master"
+  script:
+    - dotnet test GAA.sln -c Release --no-build
+
+build-ui:
+  stage: build
+  image: node:20
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_BRANCH == "main"
+    - if: $CI_COMMIT_BRANCH == "master"
+  script:
+    - cd src/services/ui
+    - npm ci --legacy-peer-deps
+    - npm run build

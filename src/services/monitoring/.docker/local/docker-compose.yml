@@ -1,0 +1,14 @@
+services:
+  monitoring:
+    image: twinproduction/gatus:v5.12.1
+    container_name: gamesapp-monitoring
+    volumes:
+      - ${ROOT_WSL_PATH}/src/services/monitoring/config/config.yaml:/config/config.yaml:ro
+      - gatus-data:/data
+    ports:
+      - "${GATUS_PORT}:8080"
+    environment:
+      - GATUS_CONFIG_PATH=${GATUS_CONFIG_PATH}
+    networks:
+      - gamesapp-network
+    restart: unless-stopped

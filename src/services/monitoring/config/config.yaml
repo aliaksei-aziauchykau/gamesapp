@@ -1,0 +1,26 @@
+storage:
+  path: /data
+
+metrics: false
+
+endpoints:
+  - name: gamesapp-api
+    group: gamesapp
+    url: http://api:80/health
+    interval: 30s
+    conditions:
+      - "[STATUS] == 200"
+
+  - name: gamesapp-ui
+    group: gamesapp
+    url: http://ui:80/
+    interval: 30s
+    conditions:
+      - "[STATUS] == 200"
+
+  - name: keycloak
+    group: gamesapp
+    url: http://keycloak:8080/health/ready
+    interval: 30s
+    conditions:
+      - "[STATUS] == 200"

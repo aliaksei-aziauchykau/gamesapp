@@ -1,0 +1,11 @@
+services:
+  ui:
+    build:
+      context: .
+      dockerfile: src/services/ui/.docker/local/Dockerfile
+    container_name: gamesapp-ui
+    ports:
+      - "4200:80"
+    networks:
+      - gamesapp-network
+    restart: unless-stopped

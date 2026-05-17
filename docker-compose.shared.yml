@@ -1,0 +1,15 @@
+networks:
+  gamesapp-network:
+    driver: bridge
+
+volumes:
+  postgresql-data:
+    driver: local
+  pgadmin-data:
+    driver: local
+  loki-data:
+    driver: local
+  grafana-data:
+    driver: local
+  gatus-data:
+    driver: local

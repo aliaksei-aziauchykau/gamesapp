@@ -1,0 +1,16 @@
+services:
+  database-migrator:
+    build:
+      context: .
+      dockerfile: src/services/database-migrator/.docker/local/Dockerfile
+    container_name: gamesapp-database-migrator
+    environment:
+      - DATABASE_CONNECTION_STRING=${DATABASE_MIGRATOR_CONNECTION_STRING}
+      - MIGRATION_SCRIPTS_PATH=${DATABASE_MIGRATOR_SCRIPTS_PATH}
+      - MIGRATION_JOURNAL_TABLE=${DATABASE_MIGRATOR_JOURNAL_TABLE}
+    networks:
+      - gamesapp-network
+    depends_on:
+      postgresql:
+        condition: service_healthy
+    restart: "no"

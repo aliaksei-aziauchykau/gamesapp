@@ -1,0 +1,21 @@
+# Build outputs
+**/bin/
+**/obj/
+**/dist/
+**/out/
+
+# Tooling
+.idea/
+.vs/
+*.user
+*.suo
+
+# Local environment
+.env
+.env.*.local
+
+# Node
+node_modules/
+
+# Logs
+*.log
