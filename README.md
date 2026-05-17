@@ -22,10 +22,17 @@ This repository is bootstrapped from patterns in `streamapp`, while the product 
    Copy-Item .\.env.example .\.env
    ```
 
-2. Start infra + apps:
+2. Start infra + apps (PowerShell):
 
    ```powershell
    .\merge-docker-compose.ps1 up -d postgresql keycloak api ui logging monitoring
+   ```
+
+   Optional: use a non-default compose env file:
+
+   ```powershell
+   $env:GAMESAPP_ENV_FILE = ".env.prod"
+   .\merge-docker-compose.ps1 up -d
    ```
 
 3. Run migrations (one-off):
