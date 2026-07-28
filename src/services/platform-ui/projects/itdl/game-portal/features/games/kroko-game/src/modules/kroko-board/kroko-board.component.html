@@ -1,0 +1,33 @@
+<mat-card>
+    <!-- <gpll-card [useBorderAnimation]="(isDrawer$ | async) ?? false"> -->
+    <gpll-card [useBorderAnimation]="false">
+        <mat-card-content>
+            <ng-container *rxLet="context$; let context">
+                referee
+                {{ container.clientWidth }} x {{ container.clientHeight }}
+                <!-- <gpll-test-canvas
+                    [clientWidth]="container.clientWidth"
+                    [clientHeight]="container.clientHeight"></gpll-test-canvas> -->
+                <shrl-konva-stage
+                    [gpllDrawTool]="context.tool"
+                    [config]="{ width: container.clientWidth, height: container.clientHeight }">
+                    <shrl-konva-layer>
+                        <ng-container *ngFor="let shape of context.state.shapes; trackBy: trackByFn">
+                            <ng-container [ngSwitch]="shape.tool">
+                                <ng-container *ngSwitchCase="'pen'">
+                                    <shrl-konva-line [config]="shape"></shrl-konva-line>
+                                </ng-container>
+                                <ng-container *ngSwitchCase="'circle'">
+                                    <shrl-konva-circle [config]="shape"></shrl-konva-circle>
+                                </ng-container>
+                                <ng-container *ngSwitchCase="'donught'">
+                                    <shrl-konva-circle [config]="shape"></shrl-konva-circle>
+                                </ng-container>
+                            </ng-container>
+                        </ng-container>
+                    </shrl-konva-layer>
+                </shrl-konva-stage>
+            </ng-container>
+        </mat-card-content>
+    </gpll-card>
+</mat-card>

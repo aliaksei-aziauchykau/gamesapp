@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OData" Version="8.2.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\BGP.Shared.Libs.Domain\BGP.Shared.Libs.Domain.csproj" />
+    <ProjectReference Include="..\BGP.Shared.Libs.Mappings\BGP.Shared.Libs.Mappings.csproj" />
+    <ProjectReference Include="..\BGP.Shared.Libs.Microservice\BGP.Shared.Libs.Microservice.csproj" />
+    <ProjectReference Include="..\BGP.Shared.Modules.MapCommands\BGP.Shared.Modules.MapCommands.csproj" />
+    <ProjectReference Include="..\BGP.Shared.Modules.CrudCommands\BGP.Shared.Modules.CrudCommands.csproj" />
+    <ProjectReference Include="..\BGP.Shared.Modules.MapCommands\BGP.Shared.Modules.MapCommands.csproj" />
+  </ItemGroup>
+
+</Project>

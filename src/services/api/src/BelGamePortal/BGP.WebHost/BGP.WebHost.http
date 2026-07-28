@@ -1,0 +1,6 @@
+@BGP.WebHost_HostAddress = http://localhost:5002
+
+GET {{BGP.WebHost_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

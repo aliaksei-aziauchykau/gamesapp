@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Auth0.ManagementApi" Version="7.26.2" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.2" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\BGP.Auth.Domain\BGP.Auth.Domain.csproj" />
+        <ProjectReference Include="..\BGP.Shared.Modules.Mediator\BGP.Shared.Modules.Mediator.csproj" />
+        <ProjectReference Include="..\BGP.Shared.Modules.CrudCommands\BGP.Shared.Modules.CrudCommands.csproj" />
+        <ProjectReference Include="..\BGP.Shared.Modules.MapCommands\BGP.Shared.Modules.MapCommands.csproj" />
+        <ProjectReference Include="..\BGP.Shared.Modules.CachePipeline\BGP.Shared.Modules.CachePipeline.csproj" />
+    </ItemGroup>
+</Project>

@@ -1,0 +1,19 @@
+:host(.kroko-countdown) {
+    .countdown-timer {
+        font-size: 20px;
+    }
+}
+
+:host(.kroko-cyberpunk) {
+    .countdown-timer {
+        font-size: 2rem;
+        color: #0cff00; /* Neon green or your preferred neon color */
+        background-color: #000; /* Dark background */
+        padding: 10px;
+        border: 1px solid #0cff00; /* Neon green border */
+        border-radius: 4px;
+        box-shadow: 0 0 10px #0cff00; /* Neon green glow */
+        text-align: center;
+        width: 100px;
+    }
+}

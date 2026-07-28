@@ -1,0 +1,6 @@
+<div class="collage">
+    <div *ngIf="imageSources.length === 2" class="collage-stack">
+        <img class="collage-stack__item collage-stack__item--top" [src]="imageSources[0]" />
+        <img class="collage-stack__item collage-stack__item--bottom" [src]="imageSources[1]" />
+    </div>
+</div>

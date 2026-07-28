@@ -1,0 +1,27 @@
+<ng-container [matColumnDef]="columnDefConfig.matColumnDef">
+    <ng-container *ngIf="columnDefConfig.childrenViewComponentConfigs.header">
+        <th mat-header-cell *matHeaderCellDef>
+            <ng-container
+                *ngComponentOutlet="
+                    columnDefConfig.childrenViewComponentConfigs.header.component;
+                    inputs: columnDefConfig.childrenViewComponentConfigs.header.inputs;
+                    injector: columnDefConfig.childrenViewComponentConfigs.header.injector
+                ">
+            </ng-container>
+        </th>
+    </ng-container>
+
+    <ng-container *ngIf="columnDefConfig.childrenViewComponentConfigs.cell">
+        <td mat-cell *matCellDef="let dataRow">
+            <ng-container
+                *ngComponentOutlet="
+                    columnDefConfig.childrenViewComponentConfigs.cell.component;
+                    inputs: extend(columnDefConfig.childrenViewComponentConfigs.cell.inputs, {
+                        dataRow: dataRow,
+                    });
+                    injector: columnDefConfig.childrenViewComponentConfigs.cell.injector
+                ">
+            </ng-container>
+        </td>
+    </ng-container>
+</ng-container>

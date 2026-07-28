@@ -1,0 +1,5 @@
+$StartUpPoject = "BGP.WebHost"
+$Project = "BGP.Emails.Database"
+$DbContext = "EmailDbContext"
+$OutputDir = "./Migrations"
+$RootLocation = "C:\Root\Projects\VolnyaSiervisy\src\game-portal\backend\BelGamePortal"

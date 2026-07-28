@@ -1,0 +1,3 @@
+<ng-container *rxLet="items$; let items">
+    <ng-container *ngTemplateOutlet="content; context: { $implicit: items }"> </ng-container>
+</ng-container>

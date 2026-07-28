@@ -1,4 +1,7 @@
+using GAA.Application.Games.Handlers;
 using GAA.Application.Status.Handlers;
+using GAA.Infrastructure;
+using GAA.Microservices.Composition;
 using GAA.Shared.Modules.Auth.Implementation;
 using GAA.Shared.Modules.Auth.Interfaces;
 using GAA.Shared.Modules.Common.Implementation;
@@ -19,13 +22,26 @@ Log.Logger = new LoggerConfiguration()
     .Enrich.WithThreadId()
     .WriteTo.Console(
         outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj} {Properties:j}{NewLine}{Exception}")
-    .CreateLogger();
+    .CreateBootstrapLogger();
 
 try
 {
-    Log.Information("Starting GamesApp API");
-
     var builder = WebApplication.CreateBuilder(args);
+
+    Log.Logger = new LoggerConfiguration()
+        .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
+        .MinimumLevel.Override("System", LogEventLevel.Warning)
+        .MinimumLevel.Override("Microsoft.AspNetCore", LogEventLevel.Warning)
+        .MinimumLevel.Information()
+        .Enrich.FromLogContext()
+        .Enrich.WithEnvironmentName()
+        .Enrich.WithMachineName()
+        .Enrich.WithThreadId()
+        .WriteTo.Console(
+            outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj} {Properties:j}{NewLine}{Exception}")
+        .CreateLogger();
+
+    Log.Information("Starting GamesApp API");
     builder.Host.UseSerilog();
 
     var corsOrigins = (Environment.GetEnvironmentVariable("CORS_ALLOWED_ORIGINS")
@@ -78,6 +94,8 @@ try
 
     CommonModule.Create(builder.Services).AddCommon();
 
+    builder.Services.AddGamesAppInfrastructure();
+
     MediatorModule.Create(builder.Services)
         .AddMediator(typeof(GetStatusQueryHandler).Assembly);
 
@@ -102,6 +120,8 @@ try
             RequireHttpsMetadata = requireHttpsMetadata
         });
 
+    builder.Services.AddGamesAppMicroservices();
+
     var app = builder.Build();
 
     if (app.Environment.IsDevelopment())
@@ -119,6 +139,7 @@ try
     app.UseAuthorization();
 
     app.MapControllers();
+    app.MapGamesAppMicroservices();
     app.MapHealthChecks("/health/ready", new HealthCheckOptions
     {
         Predicate = _ => true

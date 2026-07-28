@@ -1,0 +1,11 @@
+:host(.custom-h-100) {
+}
+
+mat-card {
+    height: 100%;
+}
+
+mat-card-content {
+    max-height: 150px;
+    overflow-y: auto;
+}

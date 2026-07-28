@@ -1,0 +1,41 @@
+/* eslint-disable sort-exports/sort-exports */
+import { Injectable } from '@angular/core';
+import { State } from '@ngxs/store';
+import { StorageKeys } from '@itdl/game-portal/common/config';
+
+export interface I{{ModuleNamePascal}}XSState {
+}
+
+const defaults: I{{ModuleNamePascal}}XSState = {
+};
+
+@State<I{{ModuleNamePascal}}XSState>({
+    name: StorageKeys.{{ModuleNamePascal}}State,
+    defaults,
+})
+@Injectable()
+export class {{ModuleNamePascal}}XSState {
+
+    // @Action({{ModuleNamePascal}}StoreActions.FetchUiSchema)
+    // public example(
+    //     { dispatch }: StateContext<I{{ModuleNamePascal}}XSState>,
+    //     { collectionName }: {{ModuleNamePascal}}StoreActions.FetchUiSchema,
+    // ) {
+    //     
+    //     return this.{{ModuleNamePascal}}ApiService
+    //         .getUiSchema(collectionName)
+    //         .pipe(tap((uiSchema) => dispatch(new {{ModuleNamePascal}}StoreActions.StoreUiSchema(collectionName, uiSchema))));
+    // }
+
+
+    // @Selector()
+    // public static schemas(state: I{{ModuleNamePascal}}XSState) {
+    //     return state.schemas;
+    // }
+
+    // public static uiSchema(collectionName: CollectionNameType) {
+    //     return createSelector([{{ModuleNamePascal}}XSState], (state: I{{ModuleNamePascal}}XSState) => {
+    //         return state.schemas[collectionName];
+    //     });
+    // }
+}

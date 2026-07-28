@@ -1,0 +1,34 @@
+@startuml
+!theme black-knight
+' hide the spot
+' hide circle
+
+' avoid problems with angled crows feet
+' Type	Symbol
+' Zero or One	|o--
+' Exactly One	||--
+' Zero or Many	}o--
+' One or Many	}|--
+skinparam DefaultFontColor white
+skinparam ClassFontColor #FF8080
+skinparam BorderColor white
+
+
+skinparam linetype ortho
+
+entity "Users.Workspaces" as workspaces {
+    * WorkspaceId : uniqid <<PK>>
+    --
+}
+
+entity "Users.Projects" as projects {
+    * ProjectId : uniqid <<PK>>
+    Name: nvarchar(255)
+    Description: nvarchar(255)
+    --
+    * WorkspaceId : uniqid <<FK>>
+}
+
+workspaces ||..|{ projects
+
+@enduml

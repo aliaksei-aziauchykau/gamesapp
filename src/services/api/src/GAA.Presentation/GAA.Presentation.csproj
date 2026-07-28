@@ -12,11 +12,12 @@
     <ProjectReference Include="..\Shared\Modules\Common\GAA.Shared.Modules.Common.Implementation\GAA.Shared.Modules.Common.Implementation.csproj" />
     <ProjectReference Include="..\Shared\Modules\Mediator\GAA.Shared.Modules.Mediator.Implementation\GAA.Shared.Modules.Mediator.Implementation.csproj" />
     <ProjectReference Include="..\Shared\Modules\Auth\GAA.Shared.Modules.Auth.Implementation\GAA.Shared.Modules.Auth.Implementation.csproj" />
+    <ProjectReference Include="..\Shared\Microservices\GAA.Microservices.Composition\GAA.Microservices.Composition.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="8.0.10" />
-    <PackageReference Include="Serilog.AspNetCore" Version="8.0.3" />
+    <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="8.0.1" />
+    <PackageReference Include="Serilog.AspNetCore" Version="8.0.2" />
     <PackageReference Include="Serilog.Enrichers.Environment" Version="3.0.1" />
     <PackageReference Include="Serilog.Enrichers.Thread" Version="4.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />

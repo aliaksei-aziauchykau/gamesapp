@@ -1,0 +1,37 @@
+{
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "name": "@itdl/shared",
+  "projectType": "library",
+  "sourceRoot": "projects/itdl/shared/src",
+  "prefix": "shrl",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:ng-packagr",
+      "options": {
+        "project": "projects/itdl/shared/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "projects/itdl/shared/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "projects/itdl/shared/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production",
+      "outputs": [
+        "{workspaceRoot}/dist/itdl/shared"
+      ]
+    },
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "tsConfig": "projects/itdl/shared/tsconfig.spec.json",
+        "polyfills": [
+          "zone.js",
+          "zone.js/testing"
+        ]
+      }
+    }
+  }
+}

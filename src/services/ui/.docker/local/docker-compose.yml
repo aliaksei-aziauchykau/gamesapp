@@ -5,7 +5,12 @@ services:
       dockerfile: src/services/ui/.docker/local/Dockerfile
     container_name: gamesapp-ui
     ports:
-      - "4200:80"
+      - "${UI_HTTP_PORT:-4220}:80"
     networks:
       - gamesapp-network
     restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.gamesapp-ui.rule=Host(`ui.gamesapp.local.projects.volnyja-siervisy.site`)"
+      - "traefik.http.routers.gamesapp-ui.entrypoints=web"
+      - "traefik.http.services.gamesapp-ui.loadbalancer.server.port=80"

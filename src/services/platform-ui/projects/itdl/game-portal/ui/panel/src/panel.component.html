@@ -1,0 +1,32 @@
+<div class="gpll-panel pt-2">
+    <mat-drawer-container>
+        <mat-drawer mode="push" #sidenav (keydown.escape)="sidenav.close()">
+            <div class="navigation-links" [ngStyle]="{ 'margin-top': level * 60 + 'px' }">
+                <p>
+                    <button
+                        class="sidenav-toggle"
+                        [ngStyle]="{ top: level * 60 + 'px' }"
+                        mat-fab
+                        extended
+                        (click)="sidenav.toggle()">
+                        {{ navigationButtonName | gpllTranslate }}
+                        <mat-icon fontIcon="rocket_launch"> </mat-icon>
+                    </button>
+                </p>
+                <ng-container *ngTemplateOutlet="panel || defaultPanelTemplate"></ng-container>
+                <ng-template #defaultPanelTemplate>
+                    <p>Links here</p>
+                </ng-template>
+            </div>
+        </mat-drawer>
+        <mat-drawer-content>
+            <div>
+                <ng-container *ngTemplateOutlet="panelContent || defaultPanelContentTemplate"> </ng-container>
+                <ng-template #defaultPanelContentTemplate>
+                    <p>Content Here</p>
+                </ng-template>
+            </div>
+            <!-- <router-outlet> </router-outlet> -->
+        </mat-drawer-content>
+    </mat-drawer-container>
+</div>

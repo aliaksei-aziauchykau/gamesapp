@@ -1,0 +1,9 @@
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+
+@Component({
+    selector: 'gpl-{{ModuleName}}-page',
+    templateUrl: './{{ModuleName}}-page.component.html',
+    styleUrls: ['./{{ModuleName}}-page.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class Gpl{{ModuleNamePascal}}PageComponent {}

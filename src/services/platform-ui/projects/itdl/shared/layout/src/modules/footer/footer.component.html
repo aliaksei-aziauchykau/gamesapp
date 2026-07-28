@@ -1,0 +1,35 @@
+<footer>
+    <ng-container *ngTemplateOutlet="footerContentTemplate || footerContentTemplateDefault"></ng-container>
+</footer>
+
+<ng-template #footerContentTemplateDefault>
+    <div class="footer-content container mx-auto columns-3">
+        <div class="footer-content__item flex flex-col justify-start">
+            <div>
+                <div class="inline-block text-left">
+                    <li>Game Desing</li>
+                    <li>Shop</li>
+                    <li>Email</li>
+                </div>
+            </div>
+        </div>
+        <div class="footer-content__item flex flex-col justify-start">
+            <div>
+                <div class="inline-block text-left">
+                    <li>Address</li>
+                    <li>Contact Us</li>
+                    <li>Mobile</li>
+                </div>
+            </div>
+        </div>
+        <div class="footer-content__item flex flex-col justify-start">
+            <div>
+                <div class="inline-block">
+                    <li>first</li>
+                    <li>first</li>
+                    <li>first</li>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

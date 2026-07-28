@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
+        <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="8.0.8" />
+        <PackageReference Include="Serilog.AspNetCore" Version="8.0.2" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\BGP.Platform.Application\BGP.Platform.Application.csproj" />
+        <ProjectReference Include="..\BGP.Shared.Libs.Common\BGP.Shared.Libs.Common.csproj" />
+        <ProjectReference Include="..\BGP.Shared.Libs.Database\BGP.Shared.Libs.Database.csproj" />
+        <ProjectReference Include="..\BGP.Shared.Modules.DotNetEnv\BGP.Shared.Modules.DotNetEnv.csproj" />
+    </ItemGroup>
+</Project>

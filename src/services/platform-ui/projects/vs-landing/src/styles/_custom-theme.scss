@@ -1,0 +1,98 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Custom typography
+// $my-custom-typography-config: mat.define-typography-config(
+//   $headline-1: mat.define-typography-level(112px, 112px, 300, $letter-spacing: -0.05em),
+//   $headline-2: mat.define-typography-level(56px, 56px, 400, $letter-spacing: -0.02em),
+//   $headline-3: mat.define-typography-level(45px, 48px, 400, $letter-spacing: -0.005em),
+//   $headline-4: mat.define-typography-level(34px, 40px, 400),
+//   $headline-5: mat.define-typography-level(24px, 32px, 400),
+// ...
+// );
+//https://material.angular.io/guide/typography
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+// $vs-landing-primary: mat.define-palette($md-mcgpalette-primary);
+// $vs-landing-accent: mat.define-palette($md-mcgpalette-accent);
+
+// The warn palette is optional (defaults to red).
+// $vs-landing-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+
+$vs-landing-dark-theme: mat.define-theme(
+    (
+        color: (
+            theme-type: dark,
+            primary: mat.$blue-palette,
+            // accent: mat.define-palette($md-mcgpalette-accent),
+        ),
+        // Only include `typography` and `density` in the default dark theme.
+        typography:
+            (
+                brand-family: 'Pixelify Sans',
+            ),
+        density: (
+            scale: -1,
+        ),
+    )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+
+// @import '@itdl/vs-landing/ui/card/theming';
+// @import '@itdl/vs-landing/ui/api-form/controls/input/input-control-style/theming';
+// @import '@itdl/vs-landing/ui/api-form/controls/select/select-control-style/theming';
+@import '@itdl/vs-landing/ui/api-form/controls/checkbox/checkbox-control-style/theming';
+// @import '@itdl/vs-landing/ui/api-form/controls/rte/rte-control-style/theming';
+
+body {
+    @include mat.all-component-themes($vs-landing-dark-theme);
+    // @include mat.typography-hierarchy($vs-landing-dark-typography);
+
+    // @include input-control-theme($vs-landing-dark-theme);
+    // @include select-control-theme($vs-landing-dark-theme);
+    // @include card-theme($vs-landing-dark-theme);
+    @include checkbox-control-theme($vs-landing-dark-theme);
+    // @include rte-control-theme($vs-landing-dark-theme);
+}
+
+body.light-theme {
+    $vs-landing-light-theme: mat.define-theme(
+        (
+            color: (
+                primary: mat.$azure-palette,
+                // accent: $vs-landing-accent,
+                // warn: $vs-landing-warn,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+            ),
+            typography: (
+                brand-family: 'Roboto',
+            ),
+        )
+    );
+
+    // @include mat.all-component-themes($vs-landing-light-theme);
+    @include mat.all-component-colors($vs-landing-light-theme);
+    @include mat.all-component-typographies($vs-landing-light-theme);
+
+    // @include input-control-theme($vs-landing-light-theme);
+    // @include select-control-theme($vs-landing-light-theme);
+    // @include card-colors($vs-landing-light-theme);
+    @include checkbox-control-theme($vs-landing-light-theme);
+    // @include rte-control-theme($vs-landing-light-theme);
+}
+
+/* You can add global styles to this file, and also import other style files */

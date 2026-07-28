@@ -1,0 +1,18 @@
+<gpll-rte-control-style [hostClasses]="['retro']">
+    <ng-container *ngIf="!config.isViewMode; else viewMode">
+        <editor [apiKey]="schema.apiKey" [formControl]="control" [init]="{ plugins: 'link' }"> </editor>
+    </ng-container>
+
+    <ng-template #viewMode>
+        <div [innerHTML]="control.value | safeHtml"></div>
+    </ng-template>
+
+    <div class="debug-section" *ngIf="config.isDebug">
+        <mat-checkbox
+            [ngModel]="config.isViewMode"
+            [ngModelOptions]="{ standalone: true }"
+            (click)="config.mode = config.isViewMode ? 'edit' : 'view'"
+            >Toggle view mode
+        </mat-checkbox>
+    </div>
+</gpll-rte-control-style>

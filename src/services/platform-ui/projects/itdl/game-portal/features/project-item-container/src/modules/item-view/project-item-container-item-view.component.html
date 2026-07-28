@@ -1,0 +1,19 @@
+<shrl-foreach [items]="item.events">
+    <ng-template [shrlForeachItem]="item.events" let-event>
+        <gpll-event-item-view class="mt-4" [event]="event"></gpll-event-item-view>
+    </ng-template>
+</shrl-foreach>
+<shrl-foreach [items]="item.posts">
+    <ng-template [shrlForeachItem]="item.posts" let-post>
+        <gpll-post-item-view class="mt-4" [post]="post"></gpll-post-item-view>
+    </ng-template>
+</shrl-foreach>
+<shrl-foreach [items]="item.childContainers">
+    <ng-template [shrlForeachItem]="item.childContainers" let-childContainer>
+        <gpll-project-item-container-item-fetcher [id]="childContainer.containerId">
+            <ng-template let-container>
+                <gpll-project-item-container-item-view [item]="container"></gpll-project-item-container-item-view>
+            </ng-template>
+        </gpll-project-item-container-item-fetcher>
+    </ng-template>
+</shrl-foreach>

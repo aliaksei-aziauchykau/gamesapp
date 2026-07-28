@@ -1,0 +1,26 @@
+<mat-card class="kroko-player-list scrollable-content">
+    <mat-card-header>
+        <mat-card-title>{{ 'GameModules.Kroko.PlayersListComponent.Players' | gpllTranslate }}</mat-card-title>
+        <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+    </mat-card-header>
+    <mat-card-content>
+        <ng-container *rxLet="players$; let players">
+            <ng-container *ngFor="let player of players">
+                <div class="flex flex-row gap-x-4 items-center">
+                    <ng-container *rxLet="userId$; let userId">
+                        <ng-container *ngIf="userId === player.userId">
+                            <button
+                                mat-icon-button
+                                color="primary"
+                                (click)="rxUiActions.changePlayer()"
+                                aria-label="changePlayer">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                        </ng-container>
+                    </ng-container>
+                    <p class="py-2">{{ player.nickname }}</p>
+                </div>
+            </ng-container>
+        </ng-container>
+    </mat-card-content>
+</mat-card>

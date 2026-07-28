@@ -1,0 +1,12 @@
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+
+import { Gpll{{ModuleNamePascal}}ContentModule } from '@itdl/game-portal/contents/{{ModuleName}}-content';
+import { Gpl{{ModuleNamePascal}}PageComponent } from './{{ModuleName}}-page.component';
+import { Gpl{{ModuleNamePascal}}PageRoutingModule } from './{{ModuleName}}-page.routing.module';
+
+@NgModule({
+    declarations: [Gpl{{ModuleNamePascal}}PageComponent],
+    imports: [CommonModule, Gpl{{ModuleNamePascal}}PageRoutingModule, Gpll{{ModuleNamePascal}}ContentModule],
+})
+export class Gpl{{ModuleNamePascal}}PageModule {}

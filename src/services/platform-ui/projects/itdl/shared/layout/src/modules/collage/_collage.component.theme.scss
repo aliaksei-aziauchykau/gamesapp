@@ -1,0 +1,31 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin color($theme) {
+    $color-config: mat.get-color-config($theme);
+
+    // Get the primary color palette from the color-config.
+    $primary-palette: map.get($color-config, 'primary');
+    $accent-palette: map.get($color-config, 'accent');
+
+    shrl-collage[color='primary'] {
+        .collage-stack__item {
+            border-color: mat.get-color-from-palette($primary-palette, 500);
+        }
+        background-color: mat.get-color-from-palette($primary-palette, 500);
+        color: mat.get-contrast-color-from-palette($primary-palette, 500);
+    }
+
+    shrl-collage[color='accent'] {
+        .collage-stack__item {
+            border-color: mat.get-color-from-palette($accent-palette, 500);
+        }
+    }
+}
+
+@mixin theme($theme) {
+    $color-config: mat.get-color-config($theme);
+    @if $color-config != null {
+        @include color($theme);
+    }
+}

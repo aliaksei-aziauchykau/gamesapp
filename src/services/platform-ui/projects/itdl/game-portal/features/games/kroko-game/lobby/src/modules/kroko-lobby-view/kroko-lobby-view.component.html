@@ -1,0 +1,35 @@
+<div class="flex flex-col-reverse md:flex-col gap-y-4">
+    <div class="flex flex-col md:flex-row gap-4 justify-between">
+        <div class="basis-full lg:basis-6/12 xl:basis-6/12">
+            <gpll-kroko-player-list></gpll-kroko-player-list>
+        </div>
+        <ng-container *rxLet="gameSettings$; let gameSettings">
+            <div class="basis-full lg:basis-6/12 xl:basis-6/12">
+                <gpll-kroko-game-settings [model]="gameSettings"></gpll-kroko-game-settings>
+            </div>
+        </ng-container>
+    </div>
+</div>
+
+<!--
+<div class="flex flex-col md:flex-row gap-4 justify-between">
+    <div
+        #container
+        class="basis-full min-h-[500px] lg:basis-8/12 xl:basis-8/12 flex flex-col gap-y-4 justify-between">
+        <gpll-kroko-board [container]="container"></gpll-kroko-board>
+    </div>
+    <div class="basis-full lg:basis-4/12 xl:basis-4/12 flex flex-col-reverse md:flex-col gap-y-4">
+        <div class="flex-1">
+            <gpll-kroko-player-list class="custom-h-100" *shrlServerLoader></gpll-kroko-player-list>
+        </div>
+        <div class="flex-1">
+            <gpll-kroko-chat class="custom-h-100" *shrlServerLoader></gpll-kroko-chat>
+        </div>
+    </div>
+</div>
+
+<div class="flex flex-col">
+    <ng-container *rxLet="drawToolConfig$; let config">
+        <gpll-kroko-board-tools [config]="config"></gpll-kroko-board-tools>
+    </ng-container>
+</div> -->

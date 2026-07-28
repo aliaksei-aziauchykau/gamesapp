@@ -1,0 +1,44 @@
+using System.Diagnostics;
+using System.Reflection;
+using BGP.Shared.Modules.DotNetEnv;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
+using Microsoft.Extensions.Configuration;
+using Serilog;
+
+namespace BGP.{{DomainName}}.Database;
+public class DesignTimeApplicationDbContextFactory : IDesignTimeDbContextFactory<{{DomainName}}DbContext>
+{
+    public {{DomainName}}DbContext CreateDbContext(string[] args)
+    {
+        // Debug Instructions Below
+        // Log.Information($"Current ProcessID: {Process.GetCurrentProcess().Id}");
+
+        // while (!Debugger.IsAttached)
+        // {
+        //     Thread.Sleep(100);
+        // }
+
+        var config = new ConfigurationManager();
+
+        DotNetEnvModule
+            .Create()
+            .ReadEnvFiles(config, "Design", "../BGP.{{DomainName}}.Microservice/", "{{DomainName}}");
+
+        var configRoot = ((IConfigurationBuilder)config).Build();
+
+        var connectionString = configRoot["{{DomainName}}:ConnectionStrings:DefaultConnection"];
+
+        var options = new DbContextOptionsBuilder<{{DomainName}}DbContext>();
+        options.UseSqlServer(
+            connectionString,
+            builder =>
+            {
+                builder.MigrationsAssembly(Assembly.GetExecutingAssembly().FullName);
+                // TODO to lower case
+                builder.MigrationsHistoryTable("__EFMigrationsHistory", "{{DomainName}}");
+            });
+
+        return new {{DomainName}}DbContext(options.Options, null);
+    }
+}

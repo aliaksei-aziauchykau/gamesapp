@@ -1,0 +1,120 @@
+{
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "name": "jam-portal",
+    "projectType": "application",
+    "generators": {
+        "@schematics/angular:component": {
+            "style": "scss"
+        }
+    },
+    "sourceRoot": "projects/jam-portal/src",
+    "prefix": "gpl",
+    "targets": {
+        "build": {
+            "executor": "@angular-devkit/build-angular:application",
+            "options": {
+                "outputPath": "dist/jam-portal",
+                "index": "projects/jam-portal/src/index.html",
+                "browser": "projects/jam-portal/src/main.ts",
+                "polyfills": ["zone.js"],
+                "tsConfig": "projects/jam-portal/tsconfig.app.json",
+                "inlineStyleLanguage": "scss",
+                "assets": [
+                    {
+                        "glob": "**/*",
+                        "input": "public"
+                    },
+                    {
+                        "glob": "**/*",
+                        "input": "./node_modules/leaflet/dist/images",
+                        "output": "assets/leaflet/"
+                    },
+                    "projects/jam-portal/src/assets",
+                    "projects/jam-portal/src/manifest.webmanifest"
+                ],
+                "styles": [
+                    "projects/jam-portal/src/styles.scss",
+                    "node_modules/cookieconsent/build/cookieconsent.min.css",
+                    "node_modules/leaflet/dist/leaflet.css"
+                ],
+                "scripts": ["node_modules/cookieconsent/build/cookieconsent.min.js"],
+                "server": "projects/jam-portal/src/main.server.ts",
+                "prerender": {
+                    "discoverRoutes": false,
+                    "routesFile": "projects/jam-portal/routes.txt"
+                },
+                "ssr": {
+                    "entry": "projects/jam-portal/server.ts"
+                }
+            },
+            "configurations": {
+                "production": {
+                    "fileReplacements": [
+                        {
+                            "replace": "projects/jam-portal/src/environments/environment.ts",
+                            "with": "projects/jam-portal/src/environments/environment.prod.ts"
+                        }
+                    ],
+                    "budgets": [
+                        {
+                            "type": "initial",
+                            "maximumWarning": "500kB",
+                            "maximumError": "1MB"
+                        },
+                        {
+                            "type": "anyComponentStyle",
+                            "maximumWarning": "2kB",
+                            "maximumError": "4kB"
+                        }
+                    ],
+                    "outputHashing": "all",
+                    "serviceWorker": "projects/jam-portal/ngsw-config.json"
+                },
+                "development": {
+                    "optimization": false,
+                    "extractLicenses": false,
+                    "sourceMap": true,
+                    "namedChunks": true
+                }
+            },
+            "defaultConfiguration": "production"
+        },
+        "serve": {
+            "executor": "@angular-devkit/build-angular:dev-server",
+            "configurations": {
+                "production": {
+                    "buildTarget": "jam-portal:build:production"
+                },
+                "development": {
+                    "buildTarget": "jam-portal:build:development"
+                }
+            },
+            "options": {
+                "port": 5001,
+                "ssl": true,
+                "sslKey": "projects/jam-portal/ssl/localhost.key",
+                "sslCert": "projects/jam-portal/ssl/localhost.crt"
+            },
+            "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+            "executor": "@angular-devkit/build-angular:extract-i18n"
+        },
+        "test": {
+            "executor": "@angular-devkit/build-angular:karma",
+            "options": {
+                "polyfills": ["zone.js", "zone.js/testing"],
+                "tsConfig": "projects/jam-portal/tsconfig.spec.json",
+                "inlineStyleLanguage": "scss",
+                "assets": [
+                    {
+                        "glob": "**/*",
+                        "input": "public"
+                    }
+                ],
+                "styles": ["projects/jam-portal/src/styles.scss"],
+                "scripts": []
+            }
+        }
+    }
+}

@@ -1,0 +1,39 @@
+{
+    "Header": {
+        "LogoName": "Кааператыўка",
+        "NavigationLinks": {
+            "Home": "Галоўная",
+            "Games": "Гульні"
+        }
+    },
+    "Workspace": {
+        "SideNavPanel": {
+            "Open": "Адчыніць"
+        }
+    },
+    "GameModules": {
+        "Kroko": {
+            "PlayersListComponent": {
+                "Players": "Гульцы"
+            },
+            "ChatComponent": {
+                "Chat": "Чат",
+                "Send": "Адправіць"
+            },
+            "SelectWordDialog": {
+                "Title": "Што будзем маляваць?",
+                "Description": "Калі ласка, абярыце слова"
+            }
+        },
+        "GeoGuesser": {
+            "PlayersListComponent": {
+                "Players": "Гульцы"
+            }
+        },
+        "Common": {
+            "PlayerList": {
+                "Players": "Гульцы"
+            }
+        }
+    }
+}

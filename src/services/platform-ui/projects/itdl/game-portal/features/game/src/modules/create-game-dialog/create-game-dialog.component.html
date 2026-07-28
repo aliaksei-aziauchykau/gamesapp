@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Hi Player</h1>
+<div mat-dialog-content>
+    <p>Please provide The name of game</p>
+    <mat-form-field class="w-full">
+        <mat-label>Name</mat-label>
+        <input matInput [(ngModel)]="data.name" />
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button class="w-full px-2" mat-button [mat-dialog-close]="data">Create Game</button>
+</div>

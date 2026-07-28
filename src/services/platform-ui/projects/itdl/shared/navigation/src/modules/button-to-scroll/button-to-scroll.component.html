@@ -1,0 +1,20 @@
+<!-- <button
+    [shrlScrollToLogicAnchor]="{ logicAnchorName: logicAnchorName }"
+    id="basic"
+    type="button"
+    color="accent"
+    mat-raised-button>
+    {{ buttonName }}
+</button> -->
+
+<button
+    [shrlScrollToLogicAnchor]="{ logicAnchorName: logicAnchorName }"
+    [matTooltip]="tooltipText"
+    [matTooltipClass]="tooltipClasses[mode]"
+    mat-fab
+    [extended]="!!buttonName"
+    color="primary"
+    aria-label="Example icon button with a delete icon">
+    <mat-icon>{{ icons[direction] }}</mat-icon>
+    {{ buttonName }}
+</button>

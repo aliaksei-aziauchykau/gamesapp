@@ -1,0 +1,3 @@
+<ng-container *rxLet="{{EntityNameCamel}}$; let {{EntityNameCamel}}">
+    <ng-container *ngTemplateOutlet="content; context: { $implicit: {{EntityNameCamel}} }"> </ng-container>
+</ng-container>

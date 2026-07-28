@@ -1,0 +1,5 @@
+<ng-container *ngIf="gameDefinitions$ | async; let gameDefinitions">
+    <ng-container *ngFor="let gameDefinition of gameDefinitions">
+        <gpll-game-definition-item [gameDefinition]="gameDefinition"> </gpll-game-definition-item>
+    </ng-container>
+</ng-container>

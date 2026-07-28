@@ -1,0 +1,33 @@
+<gpll-panel [level]="1" navigationButtonName="Workspaces">
+    <ng-template #panel>
+        <mat-nav-list>
+            <gpll-workspaces-list-fetcher>
+                <ng-template let-workspaces>
+                    <a mat-list-item *ngFor="let workspace of workspaces" [routerLink]="[workspace.workspaceId]">
+                        {{ workspace.name }}
+                    </a>
+                </ng-template>
+            </gpll-workspaces-list-fetcher>
+            <!-- <a mat-list-item [routerLink]="['workspaces']">Workspaces</a> -->
+        </mat-nav-list>
+    </ng-template>
+    <ng-template #panelContent><router-outlet></router-outlet></ng-template>
+</gpll-panel>
+<!-- <div class="user-space pt-2">
+    <mat-drawer-container>
+        <mat-drawer mode="push" #sidenav (keydown.escape)="sidenav.close()">
+            <div class="navigation-links">
+                <p>
+                    <button class="sidenav-toggle" mat-fab extended (click)="sidenav.toggle()">
+                        {{ 'Workspaces' | gpllTranslate }}
+                        <mat-icon fontIcon="rocket_launch"> </mat-icon>
+                    </button>
+                </p>
+            </div>
+        </mat-drawer>
+        <mat-drawer-content>
+            <router-outlet> </router-outlet>
+        </mat-drawer-content>
+    </mat-drawer-container>
+</div> -->
+

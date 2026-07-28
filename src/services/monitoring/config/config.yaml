@@ -1,26 +1,34 @@
 storage:
-  path: /data
+  type: sqlite
+  path: /data/data.db
 
 metrics: false
 
 endpoints:
   - name: gamesapp-api
     group: gamesapp
-    url: http://api:80/health
+    url: http://gamesapp-api:80/health/ready
     interval: 30s
     conditions:
       - "[STATUS] == 200"
 
   - name: gamesapp-ui
     group: gamesapp
-    url: http://ui:80/
+    url: http://gamesapp-ui:80/
+    interval: 30s
+    conditions:
+      - "[STATUS] == 200"
+
+  - name: gamesapp-ui-dev
+    group: gamesapp
+    url: http://gamesapp-ui-dev:4200/
     interval: 30s
     conditions:
       - "[STATUS] == 200"
 
   - name: keycloak
     group: gamesapp
-    url: http://keycloak:8080/health/ready
+    url: http://gamesapp-keycloak:8080/health/ready
     interval: 30s
     conditions:
       - "[STATUS] == 200"

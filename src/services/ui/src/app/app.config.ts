@@ -3,7 +3,7 @@ import {
   provideBrowserGlobalErrorListeners,
   provideZoneChangeDetection,
 } from '@angular/core';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { provideRouter } from '@angular/router';
 import { provideOAuthClient } from 'angular-oauth2-oidc';
 import { AuthConfig } from 'angular-oauth2-oidc';
@@ -11,6 +11,7 @@ import { environment } from '../environments/environment';
 
 import { routes } from './app.routes';
 import { SessionStore } from './session/session.store';
+import { authInterceptor } from './core/auth.interceptor';
 
 const authConfig: AuthConfig = {
   issuer: environment.keycloak.issuer,
@@ -27,7 +28,7 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    provideHttpClient(withInterceptorsFromDi()),
+    provideHttpClient(withInterceptors([authInterceptor])),
     provideOAuthClient({
       resourceServer: {
         allowedUrls: [environment.apiUrl],

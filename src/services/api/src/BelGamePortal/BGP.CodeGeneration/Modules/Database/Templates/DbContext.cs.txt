@@ -1,0 +1,18 @@
+using BGP.{{DomainName}}.Domain.Entities;
+using BGP.Shared.Libs.Database.DbContexts;
+using MediatR;
+using Microsoft.EntityFrameworkCore;
+
+namespace BGP.{{DomainName}}.Database;
+
+public class {{DomainName}}DbContext(DbContextOptions<{{DomainName}}DbContext> options, IMediator mediator, string schema = {{DomainName}}DbContext.Schema)
+    : BaseDbContext<{{DomainName}}DbContext>(options, mediator, schema, typeof({{DomainName}}DbContext).Assembly), IDbContextDataSource, IUnitOfWork
+{
+    // TODO - change to lower case
+    public const string Schema = "{{DomainName}}";
+
+    public IUnitOfWork UnitOfWork => this;
+
+    // TODO - Add entities
+    // public DbSet<Game> Games => Set<Game>();
+}

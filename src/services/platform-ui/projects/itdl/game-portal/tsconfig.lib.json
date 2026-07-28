@@ -1,0 +1,23 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "extends": "../../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../../out-tsc/lib",
+    "declaration": true,
+    "declarationMap": true,
+    "inlineSources": true,
+    "types": [],
+        // Phaser
+    "allowSyntheticDefaultImports": true,
+    "allowJs": true,
+    "lib": ["ES2022", "dom", "ScriptHost"],
+    // "typeRoots": ["node_modules/@angular/material", "node_modules/@rx-angular/template"],
+    "paths": {
+        "@itdl/shared/*": ["dist/itdl/shared/*"],
+        "@itdl/shared": ["dist/itdl/shared"]
+    }
+  },
+  "exclude": [
+    "**/*.spec.ts"
+  ]
+}

@@ -1,0 +1,21 @@
+**/.classpath
+**/.dockerignore
+# **/.env
+# **/.secrets
+**/.git
+**/.gitignore
+**/.project
+**/.settings
+**/.toolstarget
+**/.vs
+**/.vscode
+**/*.*~
+**/*.md
+**/bin
+**/obj
+**/README.md
+**/temp
+**/tmp
+**/node_modules
+**/.nx
+**/.angular

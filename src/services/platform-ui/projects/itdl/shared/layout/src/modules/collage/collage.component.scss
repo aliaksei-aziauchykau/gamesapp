@@ -1,0 +1,30 @@
+.collage {
+    max-width: 500px;
+}
+
+.collage-stack {
+    display: grid;
+    position: relative; // imperative for the overlapping to work
+    grid-template-columns: repeat(12, 1fr);
+
+    &__item {
+        border: 10px solid black;
+        border-radius: 20px;
+
+        &--bottom {
+            grid-column: 4 / -1;
+            grid-row: 1;
+
+            &:hover {
+                z-index: 2;
+            }
+        }
+
+        &--top {
+            grid-row: 1;
+            grid-column: 1 / span 8;
+            margin-top: 20%; // slightly arbitrary, keeps proportion once resized
+            z-index: 1; // tells the browser to make this image on top
+        }
+    }
+}

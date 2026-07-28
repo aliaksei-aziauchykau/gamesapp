@@ -17,6 +17,14 @@ COPY src/services/api/src/Shared/Modules/Auth/GAA.Shared.Modules.Auth.Interfaces
 COPY src/services/api/src/Shared/Modules/Auth/GAA.Shared.Modules.Auth.Implementation/GAA.Shared.Modules.Auth.Implementation.csproj src/services/api/src/Shared/Modules/Auth/GAA.Shared.Modules.Auth.Implementation/
 COPY src/services/api/src/Shared/Modules/Auth/GAA.Shared.Modules.Auth.Tests/GAA.Shared.Modules.Auth.Tests.csproj src/services/api/src/Shared/Modules/Auth/GAA.Shared.Modules.Auth.Tests/
 
+COPY src/services/api/src/Shared/Microservices/GAA.Shared.Microservices.Abstractions/GAA.Shared.Microservices.Abstractions.csproj src/services/api/src/Shared/Microservices/GAA.Shared.Microservices.Abstractions/
+COPY src/services/api/src/Shared/Microservices/GAA.Microservices.Composition/GAA.Microservices.Composition.csproj src/services/api/src/Shared/Microservices/GAA.Microservices.Composition/
+COPY src/services/api/src/Shared/Microservices/Games/GAA.Microservices.Games/GAA.Microservices.Games.csproj src/services/api/src/Shared/Microservices/Games/GAA.Microservices.Games/
+COPY src/services/api/src/Shared/Microservices/Auth/GAA.Microservices.Auth/GAA.Microservices.Auth.csproj src/services/api/src/Shared/Microservices/Auth/GAA.Microservices.Auth/
+COPY src/services/api/src/Shared/Microservices/Emails/GAA.Microservices.Emails/GAA.Microservices.Emails.csproj src/services/api/src/Shared/Microservices/Emails/GAA.Microservices.Emails/
+COPY src/services/api/src/Shared/Microservices/Identity/GAA.Microservices.Identity/GAA.Microservices.Identity.csproj src/services/api/src/Shared/Microservices/Identity/GAA.Microservices.Identity/
+COPY src/services/api/src/Shared/Microservices/Platform/GAA.Microservices.Platform/GAA.Microservices.Platform.csproj src/services/api/src/Shared/Microservices/Platform/GAA.Microservices.Platform/
+
 RUN dotnet restore "src/services/api/src/GAA.Presentation/GAA.Presentation.csproj"
 
 COPY src/services/api/src/ src/services/api/src/

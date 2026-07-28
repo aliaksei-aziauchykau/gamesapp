@@ -1,0 +1,16 @@
+<ng-container *ngIf="!post.viewComponent; else load">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>{{ post.title }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <p>{{ post.content }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button>LIKE</button>
+            <button mat-button>SHARE</button>
+        </mat-card-actions>
+    </mat-card>
+</ng-container>
+
+<ng-template #load> other view </ng-template>

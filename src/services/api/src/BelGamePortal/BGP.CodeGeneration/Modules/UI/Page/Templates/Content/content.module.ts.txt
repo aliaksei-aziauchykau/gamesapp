@@ -1,0 +1,15 @@
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { Gpll{{ModuleNamePascal}}ContentComponent } from './{{ModuleName}}-content.component';
+
+@NgModule({
+    imports: [
+        CommonModule,
+        RouterModule,
+    ],
+    exports: [Gpll{{ModuleNamePascal}}ContentComponent],
+    declarations: [Gpll{{ModuleNamePascal}}ContentComponent],
+    providers: [],
+})
+export class Gpll{{ModuleNamePascal}}ContentModule {}

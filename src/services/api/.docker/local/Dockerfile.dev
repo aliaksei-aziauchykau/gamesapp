@@ -1,0 +1,9 @@
+# Dev image: SDK + curl for healthchecks. Source is bind-mounted; entry via compose (dotnet watch).
+FROM mcr.microsoft.com/dotnet/sdk:8.0
+WORKDIR /src
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends curl \
+    && rm -rf /var/lib/apt/lists/*
+
+EXPOSE 80

@@ -1,0 +1,15 @@
+<gpll-panel [level]="3" navigationButtonName="Projects">
+    <ng-template #panel>
+        <mat-nav-list>
+            <gpll-projects-list-fetcher>
+                <ng-template let-projects>
+                    <a mat-list-item *ngFor="let project of projects" [routerLink]="[project.projectId]">
+                        {{ project.name }}
+                    </a>
+                </ng-template>
+            </gpll-projects-list-fetcher>
+            <!-- <a mat-list-item [routerLink]="['workspaces']">Workspaces</a> -->
+        </mat-nav-list>
+    </ng-template>
+    <ng-template #panelContent><router-outlet></router-outlet></ng-template>
+</gpll-panel>

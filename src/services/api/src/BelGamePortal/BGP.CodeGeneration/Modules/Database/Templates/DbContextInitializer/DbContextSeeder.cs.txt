@@ -1,0 +1,20 @@
+using BGP.Shared.Libs.Database.DbContextInitializer;
+
+namespace BGP.{{DomainName}}.Database;
+
+public class {{DomainName}}DbContextSeeder : IDbContextSeeder
+{
+    private readonly {{DomainName}}DbContext _context;
+
+    public {{DomainName}}DbContextSeeder({{DomainName}}DbContext context)
+    {
+        _context = context;
+    }
+
+
+    public async Task SeedAsync()
+    {
+        // TODO
+    }
+}
+

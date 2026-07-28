@@ -1,0 +1,120 @@
+{
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "name": "game-portal",
+    "projectType": "application",
+    "generators": {
+        "@schematics/angular:component": {
+            "style": "scss"
+        }
+    },
+    "sourceRoot": "projects/game-portal/src",
+    "prefix": "gpl",
+    "targets": {
+        "build": {
+            "executor": "@angular-devkit/build-angular:application",
+            "options": {
+                "outputPath": "dist/game-portal",
+                "index": "projects/game-portal/src/index.html",
+                "browser": "projects/game-portal/src/main.ts",
+                "polyfills": ["zone.js"],
+                "tsConfig": "projects/game-portal/tsconfig.app.json",
+                "inlineStyleLanguage": "scss",
+                "assets": [
+                    {
+                        "glob": "**/*",
+                        "input": "public"
+                    },
+                    {
+                        "glob": "**/*",
+                        "input": "./node_modules/leaflet/dist/images",
+                        "output": "assets/leaflet/"
+                    },
+                    "projects/game-portal/src/assets",
+                    "projects/game-portal/src/manifest.webmanifest"
+                ],
+                "styles": [
+                    "projects/game-portal/src/styles.scss",
+                    "node_modules/cookieconsent/build/cookieconsent.min.css",
+                    "node_modules/leaflet/dist/leaflet.css"
+                ],
+                "scripts": ["node_modules/cookieconsent/build/cookieconsent.min.js"],
+                "server": "projects/game-portal/src/main.server.ts",
+                "prerender": {
+                    "discoverRoutes": false,
+                    "routesFile": "projects/game-portal/routes.txt"
+                },
+                "ssr": {
+                    "entry": "projects/game-portal/server.ts"
+                }
+            },
+            "configurations": {
+                "production": {
+                    "fileReplacements": [
+                        {
+                            "replace": "projects/game-portal/src/environments/environment.ts",
+                            "with": "projects/game-portal/src/environments/environment.prod.ts"
+                        }
+                    ],
+                    "budgets": [
+                        {
+                            "type": "initial",
+                            "maximumWarning": "500kB",
+                            "maximumError": "1MB"
+                        },
+                        {
+                            "type": "anyComponentStyle",
+                            "maximumWarning": "2kB",
+                            "maximumError": "4kB"
+                        }
+                    ],
+                    "outputHashing": "all",
+                    "serviceWorker": "projects/game-portal/ngsw-config.json"
+                },
+                "development": {
+                    "optimization": false,
+                    "extractLicenses": false,
+                    "sourceMap": true,
+                    "namedChunks": true
+                }
+            },
+            "defaultConfiguration": "production"
+        },
+        "serve": {
+            "executor": "@angular-devkit/build-angular:dev-server",
+            "configurations": {
+                "production": {
+                    "buildTarget": "game-portal:build:production"
+                },
+                "development": {
+                    "buildTarget": "game-portal:build:development"
+                }
+            },
+            "options": {
+                "port": 5001,
+                "ssl": true,
+                "sslKey": "projects/game-portal/ssl/localhost.key",
+                "sslCert": "projects/game-portal/ssl/localhost.crt"
+            },
+            "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+            "executor": "@angular-devkit/build-angular:extract-i18n"
+        },
+        "test": {
+            "executor": "@angular-devkit/build-angular:karma",
+            "options": {
+                "polyfills": ["zone.js", "zone.js/testing"],
+                "tsConfig": "projects/game-portal/tsconfig.spec.json",
+                "inlineStyleLanguage": "scss",
+                "assets": [
+                    {
+                        "glob": "**/*",
+                        "input": "public"
+                    }
+                ],
+                "styles": ["projects/game-portal/src/styles.scss"],
+                "scripts": []
+            }
+        }
+    }
+}

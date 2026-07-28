@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\BGP.Shared.Libs.Logging\BGP.Shared.Libs.Logging.csproj" />
+        <ProjectReference Include="..\BGP.Emails.Domain\BGP.Emails.Domain.csproj" />
+        <ProjectReference Include="..\BGP.Games.Integration.Events\BGP.Games.Integration.Events.csproj" />
+        <ProjectReference Include="..\BGP.Shared.Modules.Mediator\BGP.Shared.Modules.Mediator.csproj" />
+        <ProjectReference Include="..\BGP.Shared.Modules.Email\BGP.Shared.Modules.Email.csproj" />
+    </ItemGroup>
+</Project>

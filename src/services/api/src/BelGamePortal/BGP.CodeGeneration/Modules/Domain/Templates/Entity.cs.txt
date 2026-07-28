@@ -1,0 +1,10 @@
+using BGP.Shared.Libs.Domain.Attributes;
+using BGP.Shared.Libs.Domain.Entities;
+
+namespace BGP.{{DomainName}}.Domain.Entities;
+
+[DataSource(DataSourceType.DbContext)]
+public class {{EntityName}} : Entity<{{EntityKey}}>
+{
+    // TODO - Add props
+}

@@ -1,0 +1,14 @@
+{
+    "Header": {
+        "LogoName": "Игровой портал",
+        "NavigationLinks": {
+            "Home": "Главная",
+            "Games": "Игры"
+        }
+    },
+    "Workspace": {
+        "SideNavPanel": {
+            "Open": "Открыть"
+        }
+    }
+}

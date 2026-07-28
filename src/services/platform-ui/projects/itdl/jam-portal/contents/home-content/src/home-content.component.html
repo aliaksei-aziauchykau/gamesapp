@@ -1,0 +1,64 @@
+<shrl-with-button-to-scroll-decorator
+    mode="dark"
+    direction="down"
+    position="center"
+    buttonName="Даведацца больш"
+    tooltipText="Go to Next Section"
+    toLogicAnchorName="Project">
+    <jpll-main-banner-section [shrlLogicAnchor]="'Introduction'" />
+</shrl-with-button-to-scroll-decorator>
+
+<div class="container mx-auto px-10">
+    <shrl-with-button-to-scroll-decorator
+        mode="dark"
+        direction="down"
+        buttonName="Як я магу далучыцца?"
+        tooltipText="Go to Next Section"
+        toLogicAnchorName="Goals">
+        <jpll-project-description-section [shrlLogicAnchor]="'Project'" />
+    </shrl-with-button-to-scroll-decorator>
+
+    <shrl-with-button-to-scroll-decorator
+        mode="dark"
+        direction="down"
+        tooltipText="Go to Next Section"
+        toLogicAnchorName="Join">
+        <jpll-goals-section [shrlLogicAnchor]="'Goals'" />
+    </shrl-with-button-to-scroll-decorator>
+
+    <shrl-with-button-to-scroll-decorator
+        mode="dark"
+        direction="down"
+        tooltipText="Go to Next Section"
+        toLogicAnchorName="Introduction">
+        <jpll-join-section [shrlLogicAnchor]="'Join'" />
+    </shrl-with-button-to-scroll-decorator>
+
+    <!-- <shrl-with-button-to-scroll-decorator
+            mode="light"
+            direction="up"
+            tooltipText="Go to Next Section"
+            toLogicAnchorName="News">
+            <jpll-events-section [shrlLogicAnchor]="'Events'"> </jpll-events-section>
+        </shrl-with-button-to-scroll-decorator>
+
+        <jpll-project-item-container-list-fetcher>
+            <ng-template let-items>
+                <jpll-project-item-container-list-view [items]="items"></jpll-project-item-container-list-view>
+            </ng-template>
+        </jpll-project-item-container-list-fetcher> -->
+
+    <!-- <div class="kawai absolute">
+            <img src="assets/images/kawai-1.png" alt="ITDL Logo" />
+        </div> -->
+</div>
+
+<ng-template shrlFooterTemplate>
+    <shrl-with-button-to-scroll-decorator
+        mode="dark"
+        direction="up"
+        tooltipText="Go to Next Section"
+        toLogicAnchorName="Introduction">
+        <jpll-footer-section [shrlLogicAnchor]="'Introduction'" />
+    </shrl-with-button-to-scroll-decorator>
+</ng-template>

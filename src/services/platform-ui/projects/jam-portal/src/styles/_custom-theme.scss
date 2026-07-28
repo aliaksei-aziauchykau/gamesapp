@@ -1,0 +1,225 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Custom typography
+// $my-custom-typography-config: mat.define-typography-config(
+//   $headline-1: mat.define-typography-level(112px, 112px, 300, $letter-spacing: -0.05em),
+//   $headline-2: mat.define-typography-level(56px, 56px, 400, $letter-spacing: -0.02em),
+//   $headline-3: mat.define-typography-level(45px, 48px, 400, $letter-spacing: -0.005em),
+//   $headline-4: mat.define-typography-level(34px, 40px, 400),
+//   $headline-5: mat.define-typography-level(24px, 32px, 400),
+// ...
+// );
+//https://material.angular.io/guide/typography
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+// $game-portal-primary: mat.define-palette($md-mcgpalette-primary);
+// $game-portal-accent: mat.define-palette($md-mcgpalette-accent);
+
+// The warn palette is optional (defaults to red).
+// $game-portal-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+
+// @import '@itdl/game-portal/ui/card/theming';
+// @import '@itdl/game-portal/ui/api-form/controls/input/input-control-style/theming';
+// @import '@itdl/game-portal/ui/api-form/controls/select/select-control-style/theming';
+// @import '@itdl/game-portal/ui/api-form/controls/checkbox/checkbox-control-style/theming';
+// @import '@itdl/game-portal/ui/api-form/controls/rte/rte-control-style/theming';
+
+$game-portal-dark-theme: mat.define-theme(
+    (
+        color: (
+            theme-type: dark,
+            primary: mat.$azure-palette,
+        ),
+
+        typography: (
+            brand-family: 'Pixelify Sans',
+        ),
+        density: (
+            scale: -1,
+        ),
+    )
+);
+
+$game-portal-light-theme: mat.define-theme(
+    (
+        color: (
+            theme-type: light,
+            // primary: mat.$violet-palette,
+            primary: mat.$azure-palette,
+        ),
+        typography: (
+            brand-family: 'Pixelify Sans',
+        ),
+        density: (
+            scale: -1,
+        ),
+    )
+);
+
+// Example of custom theming
+// @mixin style-theme($theme) {
+//     $primary-color: mat.get-theme-color($theme, 'primary');
+//     $accent-color: mat.get-theme-color($theme, 'secondary');
+//     $error-color: mat.get-theme-color($theme, 'error');
+
+//     $primary-contrast: mat.get-theme-color($theme, 'on-primary');
+//     $accent-contrast: mat.get-theme-color($theme, 'on-secondary');
+//     $warn-contrast: mat.get-theme-color($theme, 'on-error');
+
+//     @include mat.fab-color($theme, $color-variant: primary);
+
+//     .error-icon {
+//         @include mat.icon-color($theme, $color-variant: error);
+//     }
+
+//     .primary-bg {
+//         background-color: $primary-color !important;
+//         color: $primary-contrast !important;
+//     }
+
+//     .primary-color {
+//         color: $primary-color !important;
+//     }
+
+//     .primary-contrast {
+//         color: $primary-contrast !important;
+//     }
+
+//     .alert-heading {
+//         font: mat.get-theme-typography($theme, 'display-small', 'font');
+//         letter-spacing: mat.get-theme-typography($theme, 'headline-small', 'letter-spacing');
+//     }
+
+//     .mat-display-large,
+//     .mat-typography .mat-display-large,
+//     .mat-typography h1 {
+//         font: 400 3.562rem / 4rem Pixelify, sans-serif;
+//         letter-spacing: -0.016rem;
+//         margin: 0 0 0.5em;
+//     }
+//     .mat-display-medium,
+//     .mat-typography .mat-display-medium,
+//     .mat-typography h2 {
+//         font: 400 2.812rem / 3.25rem Pixelify, sans-serif;
+//         letter-spacing: 0rem;
+//         margin: 0 0 0.5em;
+//     }
+//     .mat-display-small,
+//     .mat-typography .mat-display-small,
+//     .mat-typography h3 {
+//         font: 400 2.25rem / 2.75rem Pixelify, sans-serif;
+//         letter-spacing: 0rem;
+//         margin: 0 0 0.5em;
+//     }
+//     .mat-headline-large,
+//     .mat-typography .mat-headline-large,
+//     .mat-typography h4 {
+//         font: 400 2rem / 2.5rem Roboto, sans-serif;
+//         letter-spacing: 0rem;
+//         margin: 0 0 0.5em;
+//     }
+//     .mat-headline-medium,
+//     .mat-typography .mat-headline-medium,
+//     .mat-typography h5 {
+//         font: 400 1.75rem / 2.25rem Roboto, sans-serif;
+//         letter-spacing: 0rem;
+//         margin: 0 0 0.5em;
+//     }
+//     .mat-headline-small,
+//     .mat-typography .mat-headline-small,
+//     .mat-typography h6 {
+//         font: 400 1.5rem / 2rem Roboto, sans-serif;
+//         letter-spacing: 0rem;
+//         margin: 0 0 0.5em;
+//     }
+//     .mat-title-large,
+//     .mat-typography .mat-title-large {
+//         font: 400 1.375rem / 1.75rem Roboto, sans-serif;
+//         letter-spacing: 0rem;
+//     }
+//     .mat-title-medium,
+//     .mat-typography .mat-title-medium {
+//         font: 500 1rem / 1.5rem Roboto, sans-serif;
+//         letter-spacing: 0.009rem;
+//     }
+//     .mat-title-small,
+//     .mat-typography .mat-title-small {
+//         font: 500 0.875rem / 1.25rem Roboto, sans-serif;
+//         letter-spacing: 0.006rem;
+//     }
+//     .mat-body-large,
+//     .mat-typography .mat-body-large,
+//     .mat-typography {
+//         font: 400 1rem / 1.5rem Roboto, sans-serif;
+//         letter-spacing: 0.031rem;
+//     }
+//     .mat-body-large p,
+//     .mat-typography .mat-body-large p,
+//     .mat-typography p {
+//         margin: 0 0 0.75em;
+//     }
+//     .mat-body-medium,
+//     .mat-typography .mat-body-medium {
+//         font: 400 0.875rem / 1.25rem Roboto, sans-serif;
+//         letter-spacing: 0.016rem;
+//     }
+//     .mat-body-small,
+//     .mat-typography .mat-body-small {
+//         font: 400 0.75rem / 1rem Roboto, sans-serif;
+//         letter-spacing: 0.025rem;
+//     }
+//     .mat-label-large,
+//     .mat-typography .mat-label-large {
+//         font: 500 0.875rem / 1.25rem Roboto, sans-serif;
+//         letter-spacing: 0.006rem;
+//     }
+//     .mat-label-medium,
+//     .mat-typography .mat-label-medium {
+//         font: 500 0.75rem / 1rem Roboto, sans-serif;
+//         letter-spacing: 0.031rem;
+//     }
+//     .mat-label-small,
+//     .mat-typography .mat-label-small {
+//         font: 500 0.688rem / 1rem Roboto, sans-serif;
+//         letter-spacing: 0.031rem;
+//     }
+// }
+
+@import '@itdl/game-portal/layout/theming';
+
+:root {
+    .light-theme {
+        @include mat.core();
+        @include mat.all-component-themes($game-portal-light-theme);
+        @include mat.typography-hierarchy($game-portal-light-theme);
+        @include mat.system-level-colors($game-portal-light-theme);
+        @include mat.system-level-typography($game-portal-light-theme);
+        // @include style-theme($game-portal-dark-theme);
+
+        @include header-component-theme($game-portal-light-theme);
+
+        // --mat-sidenav-content-background-color: #ffe7f7;
+
+        @media (prefers-color-scheme: dark) {
+            // Use the `-color` mixins to only apply color styles without reapplying the same
+            // typography and density styles.
+        }
+    }
+}

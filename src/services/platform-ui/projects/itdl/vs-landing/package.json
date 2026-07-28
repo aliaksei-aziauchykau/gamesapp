@@ -1,0 +1,17 @@
+{
+    "name": "@itdl/vs-landing",
+    "version": "0.0.1",
+    "peerDependencies": {
+        "@angular/common": "^18.1.1",
+        "@angular/core": "^18.1.1"
+    },
+    "dependencies": {
+        "tslib": "^2.3.0"
+    },
+    "sideEffects": false,
+    "exports": {
+        "./theming": {
+            "sass": "./_theming.scss"
+        }
+    }
+}

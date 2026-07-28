@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="FluentValidation" Version="11.10.0" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\BGP.Platform.Domain\BGP.Platform.Domain.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\BGP.Shared.Modules.CrudCommands\BGP.Shared.Modules.CrudCommands.csproj" />
+        <ProjectReference Include="..\BGP.Shared.Modules.Mediator\BGP.Shared.Modules.Mediator.csproj" />
+        <ProjectReference Include="..\BGP.Shared.Modules.FormEntitySchemas\BGP.Shared.Modules.FormEntitySchemas.csproj" />
+    </ItemGroup>
+</Project>

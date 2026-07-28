@@ -1,0 +1,18 @@
+.with-button-scroll-decorator {
+    position: relative;
+
+    shrl-button-to-scroll.right {
+        position: absolute;
+        bottom: 5%;
+        /* bottom: 0px; */
+        right: 5%;
+    }
+
+    shrl-button-to-scroll.center {
+        position: absolute;
+        bottom: 5%;
+        /* bottom: 0px; */
+        right: 50%;
+        transform: translate(50%, 5%);
+    }
+}

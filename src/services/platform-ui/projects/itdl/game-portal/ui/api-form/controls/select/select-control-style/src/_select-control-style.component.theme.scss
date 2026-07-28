@@ -1,0 +1,78 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin color($theme) {
+    $color-config: mat.get-color-config($theme);
+
+    @include cyberpunk();
+}
+
+@mixin theme($theme) {
+    $color-config: mat.get-color-config($theme);
+    @if $color-config != null {
+        @include color($theme);
+    }
+}
+
+@mixin cyberpunk() {
+    gpll-select-control.cyberpunk {
+        background-color: #222; /* Dark background color */
+        color: #0f0; /* Bright green text color */
+        border: 2px solid #0f0; /* Bright green border */
+        border-radius: 10px;
+        padding: 12px;
+        font-size: 16px;
+
+        .mat-mdc-select-value {
+            color: #0f0; /* Bright green text color for selected option */
+        }
+
+        &:hover {
+            background-color: #111; /* Slightly lighter background on hover */
+            border-color: #ffcc00; /* Yellow border on hover */
+        }
+
+        .mat-mdc-select-placeholder {
+            color: #888; /* Gray placeholder text */
+        }
+
+        .mat-mdc-select-arrow {
+            fill: #0f0; /* Bright green arrow color */
+        }
+
+        .mat-mdc-select-trigger:focus {
+            outline: none; /* Remove default focus outline */
+            border-color: #ffcc00; /* Yellow border on focus */
+            box-shadow: 0 0 8px rgba(255, 204, 0, 0.8); /* Glowing effect on focus */
+        }
+
+        .mat-mdc-select-trigger,
+        .mat-mdc-select-value,
+        .mat-mdc-select-placeholder {
+            transition: all 0.3s ease-in-out;
+        }
+
+        .mdc-line-ripple {
+            &::before {
+                border-bottom-color: none;
+                border-bottom-width: 0px;
+            }
+        }
+
+        .mat-mdc-form-field-subscript-wrapper {
+            display: none;
+        }
+    }
+
+    .gpll-select-control {
+        &__panel {
+            &--cyberpunk {
+                &.mat-mdc-select-panel {
+                    background-color: #000; /* Even darker background color */
+                    border: 2px solid #0f0; /* Bright green border */
+                    box-shadow: 0 4px 6px rgba(15, 15, 15, 0.6); /* Futuristic shadow */
+                }
+            }
+        }
+    }
+}

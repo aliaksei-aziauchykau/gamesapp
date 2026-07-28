@@ -1,0 +1,73 @@
+{
+    "files.eol": "\r\n",
+    "prettier.endOfLine": "crlf",
+    "editor.formatOnSave": true,
+    "typescript.preferences.importModuleSpecifier": "shortest",
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit"
+    },
+    "cSpell.words": [
+        "aspnet",
+        "asymmetrik",
+        "Cacheable",
+        "cookieconsent",
+        "devkit",
+        "Donught",
+        "gamedefs",
+        "gmpl",
+        "gpll",
+        "itdl",
+        "Konva",
+        "kroko",
+        "lndl",
+        "mcgpalette",
+        "mintplayer",
+        "ngmodule",
+        "ngrx",
+        "ngsw",
+        "nguniversal",
+        "ngxs",
+        "odata",
+        "oidc",
+        "packagr",
+        "prerender",
+        "prerendering",
+        "prll",
+        "READYTOUSE",
+        "shrl",
+        "signalr",
+        "tailwindcss",
+        "tinemce",
+        "tinymce",
+        "xtranslate"
+    ],
+    "cSpell.language": "en,ru",
+    "tailwindCSS.experimental.configFile": {
+        "projects/game-portal/tailwind.config.js": [
+            "projects/game-portal/**",
+            "projects/itdl/game-portal/**",
+            "projects/itdl/shared/**"
+        ],
+        "projects/landing/tailwind.config.js": [
+            "projects/landing/**",
+            "projects/itdl/landing/**",
+            "projects/itdl/shared/**"
+        ]
+    },
+    "[plantuml]": {
+        "editor.defaultFormatter": "jebbs.plantuml"
+    },
+    "angular-schematics.schematicsDefaultOptions": {
+        "angular-*": {
+            "externalTemplate": true,
+            "style": "scss"
+        },
+        "angular-component": {
+            "skipDisplayBlock": true,
+            "skipChangeDetectionOnPush": true
+        },
+        "angular-page": {
+            "skipChangeDetectionOnPush": true
+        }
+    },
+}

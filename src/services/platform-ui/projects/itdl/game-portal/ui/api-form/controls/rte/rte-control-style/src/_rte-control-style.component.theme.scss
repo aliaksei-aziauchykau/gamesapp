@@ -1,0 +1,70 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin color($theme) {
+    $color-config: mat.get-color-config($theme);
+
+    // Get the primary color palette from the color-config.
+    $primary-palette: map.get($color-config, 'primary');
+    $accent-palette: map.get($color-config, 'accent');
+
+    @include retro($primary-palette, $accent-palette);
+}
+
+@mixin theme($theme) {
+    $color-config: mat.get-color-config($theme);
+    @if $color-config != null {
+        @include color($theme);
+    }
+}
+
+@mixin retro($primary, $accent) {
+    gpll-rte-control-style.retro {
+        background: black;
+
+        // .tox-editor-header {
+        //     display: none;
+        // }
+
+        // .tox:not(.tox-tinymce-inline) .tox-editor-header {
+        //     background-color: green;
+        // }
+
+        .tox .tox-statusbar {
+            display: none;
+        }
+
+        .mat-mdc-checkbox {
+            // Frame color when unchecked
+            &.mdc-checkbox {
+                .mdc-checkbox__native-control:enabled:not(:checked) ~ .mdc-checkbox__background {
+                    border-color: map.get($primary, 500);
+                }
+            }
+
+            // Background and checkmark color when checked
+            &.mdc-checkbox--checked {
+                .mdc-checkbox__native-control:enabled:checked ~ .mdc-checkbox__background {
+                    background-color: map.get($accent, 400);
+                    border-color: map.get($accent, 400);
+                }
+
+                .mdc-checkbox__checkmark {
+                    color: map.get($primary, 50);
+                }
+            }
+
+            // Ripple color on click
+            .mdc-checkbox__ripple {
+                color: map.get($accent, 300);
+            }
+
+            // Label styling in a retro monospace font
+            .mat-mdc-checkbox-label {
+                color: map.get($primary, 900);
+                font-family: 'Courier New', Courier, monospace; // Retro-style monospaced font
+                font-size: 16px;
+            }
+        }
+    }
+}

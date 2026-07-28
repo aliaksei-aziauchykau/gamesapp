@@ -1,0 +1,20 @@
+:host(.custom-h-100) {
+    // &,
+    // div.kroko-player-list,
+    // mat-card,
+    // mat-card-content {
+    //     height: 100%;
+    // }
+}
+
+mat-card {
+    height: 100%;
+}
+
+mat-card-content {
+    overflow-y: auto;
+}
+
+mat-card-actions {
+    flex-direction: row-reverse;
+}

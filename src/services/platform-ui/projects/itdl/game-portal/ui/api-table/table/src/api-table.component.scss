@@ -1,0 +1,47 @@
+table {
+    width: 100%;
+}
+
+tr.expand-detail-row {
+    height: 0;
+}
+
+// tr.default-element-row:not(.expand-detail-row):hover {
+//     background: goldenrod;
+//     opacity: 0.5;
+// }
+
+// tr.default-element-row:not(.expand-detail-row):active {
+//     background: goldenrod;
+// }
+
+.default-element-row td {
+    border-bottom-width: 0;
+}
+
+gpll-api-form .mat-mdc-card {
+    border-radius: 0px;
+}
+
+// .example-element-diagram {
+//     min-width: 80px;
+//     border: 2px solid black;
+//     padding: 8px;
+//     font-weight: lighter;
+//     margin: 8px 0;
+//     height: 104px;
+// }
+
+// .example-element-symbol {
+//     font-weight: bold;
+//     font-size: 40px;
+//     line-height: normal;
+// }
+
+// .example-element-description {
+//     padding: 16px;
+// }
+
+// .example-element-description-attribution {
+//     opacity: 0.5;
+// }

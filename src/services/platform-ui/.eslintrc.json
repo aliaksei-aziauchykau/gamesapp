@@ -1,0 +1,101 @@
+{
+    "root": true,
+    "env": {
+        "es6": true,
+        "node": true
+    },
+    "ignorePatterns": [
+        "projects/**/*"
+    ],
+    "overrides": [
+        {
+            "files": [
+                "*.ts"
+            ],
+            "extends": [
+                "eslint:recommended",
+                "plugin:@typescript-eslint/recommended",
+                "plugin:@angular-eslint/recommended",
+                "plugin:@angular-eslint/template/process-inline-templates"
+            ],
+            "plugins": [
+                "change-detection-strategy",
+                "unused-imports",
+                "import",
+                "sort-exports"
+            ],
+            "rules": {
+                "@typescript-eslint/no-namespace": "off",
+                "@typescript-eslint/explicit-member-accessibility": [
+                    "error",
+                    {
+                        "accessibility": "explicit",
+                        "ignoredMethodNames": [
+                            "ngOnInit",
+                            "ngOnDestroy",
+                            "ngOnChanges",
+                            "ngAfterViewInit"
+                        ],
+                        "overrides": {
+                            "accessors": "explicit",
+                            "constructors": "no-public",
+                            "methods": "explicit",
+                            "properties": "off",
+                            "parameterProperties": "explicit"
+                        }
+                    }
+                ],
+                "@angular-eslint/sort-ngmodule-metadata-arrays": "warn",
+                "no-multiple-empty-lines": "warn",
+                "lines-between-class-members": [
+                    "warn",
+                    "always",
+                    {
+                        "exceptAfterSingleLine": true
+                    }
+                ],
+                // "sort-exports/sort-exports": ["warn", { "sortDir": "asc", "disableAutofixer": true }],
+                "no-console": "warn",
+                "no-unused-vars": "off",
+                "no-useless-constructor": "off",
+                "array-element-newline": [
+                    "error",
+                    "consistent"
+                ],
+                "@typescript-eslint/no-useless-constructor": [
+                    "error"
+                ],
+                "unused-imports/no-unused-imports": "error",
+                "unused-imports/no-unused-vars": [
+                    "warn",
+                    {
+                        "vars": "all",
+                        "varsIgnorePattern": "^_",
+                        "args": "after-used",
+                        "argsIgnorePattern": "^_"
+                    }
+                ],
+                "no-var": "error",
+                "no-unused-expressions": "error",
+                "import/no-duplicates": "error",
+                "comma-spacing": "error",
+                "prefer-const": "error",
+                "object-curly-newline": "error"
+            }
+        },
+        {
+            "files": [
+                "*.html"
+            ],
+            "extends": [
+                "plugin:@angular-eslint/template/recommended",
+                "plugin:@angular-eslint/template/accessibility"
+            ],
+            "rules": {}
+        }
+    ],
+    "parserOptions": {
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    }
+}

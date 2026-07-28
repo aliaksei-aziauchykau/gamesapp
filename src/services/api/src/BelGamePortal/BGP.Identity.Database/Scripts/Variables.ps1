@@ -1,0 +1,5 @@
+$StartUpPoject = "BGP.WebHost"
+$Project = "BGP.Identity.Database"
+$DbContext = "IdentityAppDbContext"
+$OutputDir = "./Migrations"
+$RootLocation = "C:\Root\Projects\VolnyaSiervisy\src\game-portal\backend\BelGamePortal"

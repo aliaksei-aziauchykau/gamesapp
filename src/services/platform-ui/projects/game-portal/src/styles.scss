@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@import 'styles/pallets';
+@import 'styles/custom-theme';
+@import 'styles/components-theme';
+@import 'styles/fonts';
+@import 'styles/scrollbar';
+
+body {
+    background-color: #fafafa;
+    min-height: 100vh;
+    height: 100%;
+}

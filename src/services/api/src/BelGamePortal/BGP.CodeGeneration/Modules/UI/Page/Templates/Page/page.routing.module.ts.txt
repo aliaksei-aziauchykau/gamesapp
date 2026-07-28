@@ -1,0 +1,12 @@
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+
+import { Gpl{{ModuleNamePascal}}PageComponent } from './{{ModuleName}}-page.component';
+
+const routes: Routes = [{ path: '', component: Gpl{{ModuleNamePascal}}PageComponent }];
+
+@NgModule({
+    imports: [RouterModule.forChild(routes)],
+    exports: [RouterModule],
+})
+export class Gpl{{ModuleNamePascal}}PageRoutingModule {}

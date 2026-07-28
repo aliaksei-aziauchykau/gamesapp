@@ -1,0 +1,48 @@
+# GitLab CI: build and push BGP UI image (ui-apps)
+#
+# Lives next to the UI tree: src/ui-apps/.gitlab/
+#
+# Wire-up options:
+#   - Point GitLab "CI/CD configuration file" to this path in the volnyja-siervisy repo, or
+#   - From repo root `.gitlab-ci.yml`:
+#       include:
+#         - local: src/ui-apps/.gitlab/game-portal-ui-bgp.gitlab-ci.yml
+#
+# Pipeline clones the full repo (GIT_STRATEGY: none); paths below match src/ui-apps under the clone.
+#
+# Required CI/CD variables (mask secret values):
+#   GIT_TOKEN          — GitHub PAT with read access to clone volnyja-siervisy
+#   PRREG_REGISTRY     — registry host (e.g. registry.example.com)
+#   PRREG_REGISTRY_USER
+#   PRREG_REGISTRY_PASSWORD
+
+variables:
+  GIT_STRATEGY: none
+  LIBRARY_PATH: "vendor/repo"
+
+stages:
+  - build-images-and-push
+
+build-bgp-ui:
+  stage: build-images-and-push
+  image: docker:latest
+  services:
+    - docker:dind
+  variables:
+    DOCKER_HOST: tcp://docker:2375
+    DOCKER_TLS_CERTDIR: ""
+    IMAGE_NAME: "bgp-ui"
+    IMAGE_TAG: "latest"
+    IMAGE_PROJECT: "bgp"
+    IMAGE: "$IMAGE_NAME:$IMAGE_TAG"
+    DOCKER_FILE_PATH: "$CI_PROJECT_DIR/$LIBRARY_PATH/src/ui-apps/.docker/development/.dockerfile"
+    DOCKER_CONTEXT_PATH: "$CI_PROJECT_DIR/$LIBRARY_PATH/src/ui-apps"
+  before_script:
+    - apk update && apk add git
+  script:
+    - git clone https://$GIT_TOKEN@github.com/aliaksei-aziauchykau/volnyja-siervisy.git $LIBRARY_PATH
+    - cd $LIBRARY_PATH
+    - echo "$PRREG_REGISTRY_PASSWORD" | docker login -u "$PRREG_REGISTRY_USER" --password-stdin "$PRREG_REGISTRY"
+    - docker build -f $DOCKER_FILE_PATH -t "$IMAGE" $DOCKER_CONTEXT_PATH
+    - docker tag $IMAGE $PRREG_REGISTRY/$IMAGE_PROJECT/$IMAGE
+    - docker push $PRREG_REGISTRY/$IMAGE_PROJECT/$IMAGE

@@ -1,0 +1,33 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.light-theme {
+    :host {
+        // --mdc-text-button-label-text-font: 'Pixelify Sans';
+        // --mat-toolbar-container-background-color: rgba(233, 209, 209, 0.801);
+
+        .navigation-links {
+            a {
+                position: relative;
+                text-decoration: none;
+            }
+
+            a::before {
+                content: '';
+                position: absolute;
+                width: 0;
+                height: 2px;
+                bottom: 0;
+                left: 50%;
+                background-color: #000;
+                transition: width 0.4s ease, left 0.4s ease;
+            }
+
+            a:hover::before {
+                width: 100%;
+                left: 0;
+            }
+        }
+    }
+}

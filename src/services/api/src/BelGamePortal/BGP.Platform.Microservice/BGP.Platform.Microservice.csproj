@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Autofac" Version="8.0.0" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\BGP.Platform.Application\BGP.Platform.Application.csproj" />
+        <ProjectReference Include="..\BGP.Platform.Database\BGP.Platform.Database.csproj" />
+        <ProjectReference Include="..\BGP.Platform.Integration\BGP.Platform.Integration.csproj" />
+        <ProjectReference Include="..\BGP.Platform.OData.Endpoints\BGP.Platform.OData.Endpoints.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\BGP.Shared.Libs.Microservice\BGP.Shared.Libs.Microservice.csproj" />
+        <ProjectReference Include="..\BGP.Shared.Modules.Mediator\BGP.Shared.Modules.Mediator.csproj" />
+        <ProjectReference Include="..\BGP.Shared.Modules.CrudCommands\BGP.Shared.Modules.CrudCommands.csproj" />
+        <ProjectReference Include="..\BGP.Shared.Modules.EntityConfiguration\BGP.Shared.Modules.EntityConfiguration.csproj" />
+        <ProjectReference Include="..\BGP.Shared.Modules.MapCommands\BGP.Shared.Modules.MapCommands.csproj" />
+        <ProjectReference Include="..\BGP.Shared.Modules.DotNetEnv\BGP.Shared.Modules.DotNetEnv.csproj" />
+        <ProjectReference Include="..\BGP.Shared.Modules.FormEntitySchemas\BGP.Shared.Modules.FormEntitySchemas.csproj" />
+        <ProjectReference Include="..\BGP.Shared.Modules.ServiceBus\BGP.Shared.Modules.ServiceBus.csproj" />
+    </ItemGroup>
+</Project>

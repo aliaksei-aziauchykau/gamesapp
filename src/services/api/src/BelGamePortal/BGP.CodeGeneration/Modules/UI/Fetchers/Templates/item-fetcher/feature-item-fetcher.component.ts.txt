@@ -1,0 +1,36 @@
+import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component, ContentChild, inject, Input, OnInit, TemplateRef } from '@angular/core';
+import { Gpll{{ModuleNamePascal}}ApiService } from '@itdl/game-portal/features/{{ModuleName}}/api';
+import { {{EntityNamePascal}} } from '@itdl/game-portal/features/{{ModuleName}}/entities';
+import { rxState } from '@rx-angular/state';
+import { RxLet } from '@rx-angular/template/let';
+import buildQuery from 'odata-query';
+
+type State = {
+    {{EntityNameCamel}}: {{EntityNamePascal}};
+};
+
+@Component({
+    selector: 'gpll-{{ModuleName}}-item-fetcher',
+    templateUrl: './{{ModuleName}}-item-fetcher.component.html',
+    styleUrl: './{{ModuleName}}-item-fetcher.component.scss',
+    standalone: true,
+    imports: [CommonModule, RxLet],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    providers: [Gpll{{ModuleNamePascal}}ApiService],
+})
+export class Gpll{{ModuleNamePascal}}ItemFetcherComponent implements OnInit {
+    @Input() public query: string = '';
+    @Input() public id!: string;
+    @ContentChild(TemplateRef, { static: true }) public content!: TemplateRef<unknown>;
+    private readonly apiService = inject(Gpll{{ModuleNamePascal}}ApiService);
+    private readonly state = rxState<State>();
+    readonly {{EntityNameCamel}}$ = this.state.select('{{EntityNameCamel}}');
+
+    ngOnInit(): void {
+        this.state.connect(
+            '{{EntityNameCamel}}',
+            this.apiService.getByIdOData(this.id, this.query ?? buildQuery()),
+        );
+    }
+}

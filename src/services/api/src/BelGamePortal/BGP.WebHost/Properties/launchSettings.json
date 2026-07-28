@@ -1,0 +1,58 @@
+﻿{
+    "$schema": "http://json.schemastore.org/launchsettings.json",
+    "iisSettings": {
+        "windowsAuthentication": false,
+        "anonymousAuthentication": true,
+        "iisExpress": {
+            "applicationUrl": "http://localhost:63078",
+            "sslPort": 44396
+        }
+    },
+    "profiles": {
+        "http": {
+            "commandName": "Project",
+            "dotnetRunMessages": true,
+            "launchBrowser": true,
+            "launchUrl": "swagger",
+            "applicationUrl": "http://localhost:5002",
+            "environmentVariables": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            }
+        },
+        "https": {
+            "commandName": "Project",
+            "dotnetRunMessages": true,
+            "launchBrowser": true,
+            "launchUrl": "swagger",
+            "applicationUrl": "https://localhost:7129;http://localhost:5002",
+            "environmentVariables": {
+                "ASPNETCORE_ENVIRONMENT": "Local"
+            }
+        },
+        "profhttps": {
+            "commandName": "Project",
+            "dotnetRunMessages": true,
+            "launchBrowser": true,
+            "launchUrl": "swagger",
+            "applicationUrl": "https://localhost:7129;http://localhost:5002",
+            "environmentVariables": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "CORECLR_ENABLE_PROFILING": "1",
+                "CORECLR_PROFILER": "{36032161-FFC0-4B61-B559-F6C5D41BAE5A}",
+                "CORECLR_PROFILER_PATH": "C:\\Root\\Projects\\Volniy\\src\\game-portal\\backend\\BelGamePortal\\BGP.WebHost\\bin\\Debug\\net8.0\\newrelic\\NewRelic.Profiler.dll",
+                "CORECLR_NEWRELIC_HOME": "C:\\Root\\Projects\\Volniy\\src\\game-portal\\backend\\BelGamePortal\\BGP.WebHost\\bin\\Debug\\net8.0\\newrelic",
+                "NEW_RELIC_LICENSE_KEY": "eu01xx489132a3699aea4359a18ed1c3FFFFNRAL",
+                "NEW_RELIC_APP_NAME": "BGP.WebHost",
+                "NEWRELIC_LOG_DIRECTORY": "C:\\Root\\Projects\\Volniy\\src\\game-portal\\backend\\BelGamePortal\\BGP.WebHost\\logs\\newrelic"
+            }
+        },
+        "IIS Express": {
+            "commandName": "IISExpress",
+            "launchBrowser": true,
+            "launchUrl": "swagger",
+            "environmentVariables": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            }
+        }
+    }
+}

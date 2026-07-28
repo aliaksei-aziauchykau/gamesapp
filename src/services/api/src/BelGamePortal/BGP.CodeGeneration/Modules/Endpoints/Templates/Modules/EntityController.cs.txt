@@ -1,0 +1,9 @@
+using BGP.{{DomainName}}.Domain.Entities;
+using BGP.{{DomainName}}.Microservice.Interfaces;
+using BGP.Shared.Modules.OData.Crud.Api;
+
+namespace BGP.{{DomainName}}.OData.Endpoints.Modules.{{EntityName}}s;
+
+public class {{EntityName}}sController(I{{DomainName}}Microservice microservice) : CrudODataControllerExtendedBase<{{EntityName}}, {{EntityKey}}, {{EntityName}}CreateDto, {{EntityName}}UpdateDto, {{EntityName}}PatchDto>(microservice)
+{
+}

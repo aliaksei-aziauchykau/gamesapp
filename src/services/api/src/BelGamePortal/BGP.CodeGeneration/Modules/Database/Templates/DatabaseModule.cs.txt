@@ -1,0 +1,61 @@
+using System.Reflection;
+using BGP.Shared.Libs.Database.DbContextInitializer;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using BGP.Shared.Libs.Common;
+
+namespace BGP.{{DomainName}}.Database;
+
+public class {{DomainName}}DatabaseModule
+{
+    private IServiceCollection services;
+
+    public static {{DomainName}}DatabaseModule Create()
+    {
+        return new {{DomainName}}DatabaseModule();
+    }
+
+    public {{DomainName}}DatabaseModule AddServiceCollection(IServiceCollection services)
+    {
+        this.services = services;
+
+        return this;
+    }
+
+    public {{DomainName}}DatabaseModule AddSqlDbContext<DbContextType>(IConfiguration configuration, Assembly migrationAssembly, string connectionString = "DefaultConnection") where DbContextType : DbContext
+    {
+        services.AddDbContext<DbContextType>(options =>
+        {
+            options.UseSqlServer(configuration[$"{{DomainName}}:ConnectionStrings:{connectionString}"],
+                builder =>
+                {
+                    builder.MigrationsAssembly(migrationAssembly.FullName);
+
+                    // TODO - to lower case
+                    builder.MigrationsHistoryTable("__EFMigrationsHistory", "{{DomainName}}");
+                });
+
+            options.EnableSensitiveDataLogging()
+            .LogTo(Console.WriteLine, LogLevel.Information);
+        });
+
+        return this;
+    }
+
+    public {{DomainName}}DatabaseModule AddMigrateAndSeedServices()
+    {
+        services.AddScoped<IDbContextInitializer, {{DomainName}}DbContextInitializer>();
+        services.RegisterAsScopedServices(Assembly.GetExecutingAssembly(), typeof(IDbContextSeeder));
+
+        return this;
+    }
+
+
+    public static async Task MigrateAndSeedAsync(IServiceProvider services)
+    {
+        await DbContextInitializerFacade.InitializeAsync(services);
+    }
+}

@@ -1,0 +1,205 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin color($theme) {
+    $color-config: mat.get-theme-color($theme);
+
+    // Get the primary color palette from the color-config.
+    $primary-palette: map.get($color-config, 'primary');
+    $accent-palette: map.get($color-config, 'accent');
+
+    @include cyberpunk2($primary-palette, $accent-palette);
+    @include cyberpunk();
+    @include retro($primary-palette, $accent-palette);
+}
+
+@mixin theme($theme) {
+    $color-config: mat.get-color-config($theme);
+    @if $color-config != null {
+        @include color($theme);
+    }
+}
+
+@mixin retro($primary, $accent) {
+    gpll-input-control-style.retro {
+        // Custom styles for retro game look for MDC text fields
+        .mat-mdc-form-field {
+            display: block;
+
+            .mdc-text-field {
+                // Base style
+                background-color: map.get($primary, 500);
+                border: 1px solid map.get($primary, 800);
+                border-radius: 0; // Flat, square borders for a retro feel
+
+                // Text color
+                color: map.get($accent, A200);
+
+                // Typography with a 'pixelated' effect
+                font-family: 'Press Start 2P', cursive; // This is a font that mimics old video game text
+                font-size: 16px;
+
+                // Hover effect
+                &:hover {
+                    border-color: map.get($primary, 300);
+                }
+
+                // Focus effect with a bold outline
+                &:focus-within {
+                    border-color: map.get($accent, 400);
+                    box-shadow: 0 0 5px map.get($accent, 400);
+                }
+            }
+
+            // Label styling
+            .mdc-floating-label {
+                color: map.get($accent, 500);
+                font-family: 'Press Start 2P', cursive; // Consistent video game-style font
+            }
+
+            // Line ripple effects when the input is active
+            .mdc-line-ripple {
+                background-color: map.get($accent, 400);
+            }
+        }
+    }
+}
+
+@mixin cyberpunk2($primary, $accent) {
+    gpll-input-control-style.cyberpunk2 {
+        .mat-mdc-form-field {
+            .mdc-text-field {
+                // Base style
+                background-color: map.get($primary, 800);
+                border: 1px solid map.get($accent, 400);
+
+                // Text color and glow
+                color: map.get($accent, A200);
+                box-shadow: 0 2px 10px map.get($accent, A400);
+
+                // Hover effect
+                &:hover {
+                    border-color: map.get($accent, A100);
+                    box-shadow: 0 2px 15px map.get($accent, A200);
+                }
+
+                // Focus effect with a more intense glow
+                &:focus-within {
+                    border-color: map.get($accent, A400);
+                    box-shadow: 0 2px 20px map.get($accent, A400);
+                }
+            }
+
+            // Label styling
+            .mdc-floating-label {
+                color: map.get($accent, A200);
+            }
+
+            // Line ripple effects when the input is active
+            .mdc-line-ripple {
+                background-color: map.get($accent, A400);
+            }
+        }
+    }
+}
+
+@mixin cyberpunk() {
+    gpll-input-control-style.cyberpunk {
+        .mat-mdc-form-field {
+            display: block;
+
+            .mat-mdc-form-field-focus-overlay {
+                display: none;
+            }
+        }
+
+        .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+            background-color: transparent;
+        }
+
+        .mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
+            color: #0ff !important;
+        }
+
+        .mat-mdc-text-field-wrapper {
+            border: 1px solid #b1b5c3;
+            border-radius: 10px;
+        }
+
+        .mat-mdc-form-field-infix {
+            padding: 0;
+            min-height: 30px;
+        }
+
+        .date-input {
+            .mat-mdc-text-field-wrapper {
+                padding: 0 15px 0 20px;
+            }
+
+            .mat-mdc-icon-button.mat-mdc-button-base {
+                margin-right: -15px;
+            }
+        }
+
+        .mat-mdc-icon-button.mat-mdc-button-base {
+            padding: 12px 0;
+            margin-right: 10px;
+        }
+
+        .mdc-line-ripple {
+            display: none;
+        }
+
+        .mdc-text-field:not(.mdc-text-field--disabled) .mdc-floating-label {
+            color: #a9a9c8;
+        }
+
+        .mat-mdc-form-field-subscript-wrapper {
+            display: none;
+        }
+
+        // .mat-mdc-text-field-wrapper {
+        //     border: 1px solid #0ff;
+        //     border-radius: 10px;
+        //     padding: 0 15px 0 60px;
+        // }
+
+        // .mat-input-element {
+        //     color: #0ff;
+        //     background-color: #000;
+        //     border: none;
+        //     border-bottom: 1px solid #0ff;
+
+        //     &:focus {
+        //         outline: none;
+        //         box-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #0ff, 0 0 40px #0ff;
+        //     }
+
+        //     &::placeholder {
+        //         color: #0ff;
+        //     }
+        // }
+
+        // &:hover {
+        //     background-color: #111; /* Slightly lighter background on hover */
+        //     border-color: #ffcc00; /* Yellow border on hover */
+        // }
+
+        // /* Placeholder text */
+        // &::placeholder {
+        //     color: #888; /* Gray placeholder text */
+        // }
+
+        // /* Stylish focus effect */
+        // &:focus {
+        //     outline: none; /* Remove default focus outline */
+        //     border-color: #ffcc00; /* Yellow border on focus */
+        //     box-shadow: 0 0 8px rgba(255, 204, 0, 0.8); /* Glowing effect on focus */
+        // }
+
+        // /* Add a futuristic transition effect */
+        // & {
+        //     transition: all 0.3s ease-in-out;
+        // }
+    }
+}

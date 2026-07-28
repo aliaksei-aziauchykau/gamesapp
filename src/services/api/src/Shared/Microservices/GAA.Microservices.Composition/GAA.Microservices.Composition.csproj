@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GAA.Shared.Microservices.Abstractions\GAA.Shared.Microservices.Abstractions.csproj" />
+    <ProjectReference Include="..\Auth\GAA.Microservices.Auth\GAA.Microservices.Auth.csproj" />
+    <ProjectReference Include="..\Emails\GAA.Microservices.Emails\GAA.Microservices.Emails.csproj" />
+    <ProjectReference Include="..\Games\GAA.Microservices.Games\GAA.Microservices.Games.csproj" />
+    <ProjectReference Include="..\Identity\GAA.Microservices.Identity\GAA.Microservices.Identity.csproj" />
+    <ProjectReference Include="..\Platform\GAA.Microservices.Platform\GAA.Microservices.Platform.csproj" />
+  </ItemGroup>
+
+</Project>

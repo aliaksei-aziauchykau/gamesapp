@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BGP.Identity.Database\BGP.Identity.Database.csproj" />
+    <ProjectReference Include="..\BGP.Identity.Microservice.Interface\BGP.Identity.Microservice.Interface.csproj" />
+    <ProjectReference Include="..\BGP.Identity.Pages\BGP.Identity.Pages.csproj" />
+    <ProjectReference Include="..\BGP.Shared.Libs.Microservice\BGP.Shared.Libs.Microservice.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,32 @@
+{
+    "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+    "name": "@itdl/game-portal",
+    "projectType": "library",
+    "sourceRoot": "projects/itdl/game-portal/src",
+    "prefix": "gpll",
+    "targets": {
+        "build": {
+            "executor": "@angular-devkit/build-angular:ng-packagr",
+            "options": {
+                "project": "projects/itdl/game-portal/ng-package.json"
+            },
+            "configurations": {
+                "production": {
+                    "tsConfig": "projects/itdl/game-portal/tsconfig.lib.prod.json"
+                },
+                "development": {
+                    "tsConfig": "projects/itdl/game-portal/tsconfig.lib.json"
+                }
+            },
+            "defaultConfiguration": "production",
+            "outputs": ["{workspaceRoot}/dist/itdl/game-portal"]
+        },
+        "test": {
+            "executor": "@angular-devkit/build-angular:karma",
+            "options": {
+                "tsConfig": "projects/itdl/game-portal/tsconfig.spec.json",
+                "polyfills": ["zone.js", "zone.js/testing"]
+            }
+        }
+    }
+}

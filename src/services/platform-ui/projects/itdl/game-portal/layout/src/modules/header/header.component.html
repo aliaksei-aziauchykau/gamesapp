@@ -1,0 +1,17 @@
+<!-- <gpll-auth-context *shrlServerLoader="loaderConfig"></gpll-auth-context> -->
+
+<!-- <mat-toolbar color="primary" *shrlServerLoader="loaderConfig"></mat-toolbar> -->
+
+<mat-toolbar color="primary">
+    <a [routerLink]="['']">
+        {{ 'Header.LogoName' | gpllTranslate }}
+    </a>
+    <span class="example-spacer"></span>
+    <div class="navigation-links flex flex-row gap-x-5 mr-10">
+        <a [routerLink]="['/news']">
+            {{ 'Header.NavigationLinks.News' | gpllTranslate }}
+        </a>
+        <a [routerLink]="['/events']">{{ 'Header.NavigationLinks.Events' | gpllTranslate }}</a>
+        <a [routerLink]="['/about us']">{{ 'Header.NavigationLinks.About' | gpllTranslate }}</a>
+    </div>
+</mat-toolbar>

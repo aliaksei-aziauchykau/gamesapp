@@ -1,0 +1,20 @@
+using Microsoft.Extensions.DependencyInjection;
+
+namespace BGP.{{DomainName}}.Database;
+
+public class {{DomainName}}ApplicationModule
+{
+    private IServiceCollection services;
+
+    public static {{DomainName}}ApplicationModule Create()
+    {
+        return new {{DomainName}}ApplicationModule();
+    }
+
+    public {{DomainName}}ApplicationModule AddServiceCollection(IServiceCollection services)
+    {
+        this.services = services;
+
+        return this;
+    }
+}

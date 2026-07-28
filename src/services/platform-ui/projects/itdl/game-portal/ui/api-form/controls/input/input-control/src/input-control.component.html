@@ -1,0 +1,18 @@
+<gpll-input-control-style [hostClasses]="['retro']">
+    <ng-container *ngIf="!config.isViewMode; else viewMode">
+        <mat-form-field>
+            <mat-label>{{ schema.label }}</mat-label>
+            <input type="text" matInput [formControl]="control" [placeholder]="schema.placeholder" />
+        </mat-form-field>
+    </ng-container>
+
+    <ng-template #viewMode>
+        <div>{{ control.value }}</div>
+    </ng-template>
+
+    <div class="debug-section" *ngIf="config.isDebug">
+        <mat-checkbox [checked]="config.mode === 'view'" (click)="config.mode = config.isViewMode ? 'edit' : 'view'"
+            >Toggle view mode
+        </mat-checkbox>
+    </div>
+</gpll-input-control-style>

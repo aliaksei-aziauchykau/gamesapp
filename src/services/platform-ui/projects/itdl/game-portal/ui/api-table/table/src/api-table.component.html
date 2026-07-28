@@ -1,0 +1,50 @@
+<gpll-grid [data]="entities" [config]="config"> </gpll-grid>
+
+<!-- <table mat-table [dataSource]="entities" multiTemplateDataRows class="mat-elevation-z8">
+
+    <ng-container *ngFor="let schema of schemas">
+        <ng-container [matColumnDef]="schema.name">
+            <ng-container *matHeaderCellDef #te="headerCellDef">
+                <th mat-header-cell class="capitalize">{{ schema.name }}</th>
+            </ng-container>
+            <ng-container *matCellDef="let element">
+                <td mat-cell>{{ element[schema.name] }}</td>
+            </ng-container>
+        </ng-container>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let element">
+            <button mat-icon-button (click)="expandedElement = expandedElement === element ? null : element">
+                <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button>
+                <mat-icon>delete</mat-icon>
+            </button>
+        </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="expandedDetail">
+        <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
+            <gpll-api-form
+                class="element-detail"
+                [@detailExpand]="element === expandedElement ? 'expanded' : 'collapsed'"
+                [schema]="schema"
+                [model]="element">
+            </gpll-api-form>
+        </td>
+    </ng-container>
+
+   
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+
+    <tr
+        mat-row
+        *matRowDef="let element; columns: displayedColumns"
+        class="element-row"
+        [class.example-expanded-row]="expandedElement === element"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="expand-detail-row"></tr>
+</table> -->

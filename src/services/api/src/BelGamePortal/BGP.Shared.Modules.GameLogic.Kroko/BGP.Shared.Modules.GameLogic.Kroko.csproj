@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\BGP.Shared.Libs.GameLogic\BGP.Shared.Libs.GameLogic.csproj" />
+        <ProjectReference Include="..\BGP.Shared.Libs.Mappings\BGP.Shared.Libs.Mappings.csproj" />
+        <ProjectReference Include="..\BGP.Shared.Libs.CrudServices.Interfaces\BGP.Shared.Libs.CrudServices.Interfaces.csproj" />
+        <ProjectReference Include="..\BGP.Shared.Modules.EntityApi\BGP.Shared.Modules.EntityApi.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\BGP.Games.Microservice.Interfaces\BGP.Games.Microservice.Interfaces.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Hangfire.Core" Version="1.8.14" />
+    </ItemGroup>
+</Project>

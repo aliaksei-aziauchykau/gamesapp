@@ -1,0 +1,23 @@
+{
+  "name": "@itdl/shared",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^18.0.0",
+    "@angular/core": "^18.0.0",
+    "@microsoft/signalr": "^8.0.0",
+    "@rx-angular/cdk": "^17.1.0",
+    "@rx-angular/state": "^17.2.0",
+    "@rx-angular/template": "^17.3.1",
+    "ssr-window": "^4.0.2",
+    "konva": "^9.3.11"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false,
+  "exports": {
+    "./theming": {
+        "sass": "./_theming.scss"
+    }
+}
+}

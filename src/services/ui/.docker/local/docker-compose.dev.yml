@@ -1,0 +1,35 @@
+services:
+  ui-dev:
+    build:
+      context: .
+      dockerfile: src/services/ui/.docker/local/Dockerfile.dev
+    container_name: gamesapp-ui-dev
+    ports:
+      - "${UI_DEV_HTTP_PORT:-4221}:4200"
+    volumes:
+      - ${ROOT_WSL_PATH}/src/services/ui:/app:cached
+      - /app/node_modules
+    command:
+      - npm
+      - run
+      - start
+      - --
+      - --host
+      - 0.0.0.0
+      - --port
+      - "4200"
+      - --poll
+      - "2000"
+      - --configuration=local
+    healthcheck:
+      disable: true
+    networks:
+      - gamesapp-network
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.gamesapp-ui-dev.rule=Host(`ui-dev.gamesapp.local.projects.volnyja-siervisy.site`)"
+      - "traefik.http.routers.gamesapp-ui-dev.entrypoints=web"
+      - "traefik.http.routers.gamesapp-ui-dev.service=gamesapp-ui-dev"
+      - "traefik.http.services.gamesapp-ui-dev.loadbalancer.server.port=4200"
+      - "traefik.http.services.gamesapp-ui-dev.loadbalancer.passhostheader=true"

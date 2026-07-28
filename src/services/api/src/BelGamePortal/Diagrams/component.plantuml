@@ -1,0 +1,35 @@
+@startuml
+
+' interface "SendEmailApi" as SendEmailApi
+
+' [Workspace Service] as WorkspaceService
+component WorkspaceService {
+  component WorkspaceCreatedIntegrationEvent
+  component WorkspaceUpdatedIntegrationEvent
+  component WorkspaceUpdatedIntegrationEvent1
+  component WorkspaceUpdatedIntegrationEvent2
+  component WorkspaceUpdatedIntegrationEvent3
+  component WorkspaceUpdatedIntegrationEvent4
+  component WorkspaceUpdatedIntegrationEvent5
+  component WorkspaceUpdatedIntegrationEvent6
+}
+
+' ' Integration Events
+' interface "WorkspaceCreatedIntegrationEvent" as WorkspaceCreatedIntegrationEvent
+' interface "WorkspaceUpdatedIntegrationEvent" as WorkspaceUpdatedIntegrationEvent
+
+' [Email Service]     as EmailService
+' [Scheduler Service] as SchedulerService
+' [Event Bus Service] as EventBusService
+
+
+' WorkspaceService - WorkspaceCreatedIntegrationEvent
+' WorkspaceService - WorkspaceUpdatedIntegrationEvent 
+' EmailService - SendEmailApi
+
+@enduml
+
+' @startuml
+' [Component] -right-( Interface
+' [AnotherComponent] -left- Interface
+' @enduml

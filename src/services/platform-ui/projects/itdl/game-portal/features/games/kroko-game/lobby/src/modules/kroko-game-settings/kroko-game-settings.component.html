@@ -1,0 +1,32 @@
+<mat-card>
+    <form [formGroup]="form" [shrlFormDataSync]="{ form: form, model: null }">
+        <mat-card-content>
+            <div class="flex flex-row gap-x-4 justify-between">
+                <mat-form-field>
+                    <mat-label>Number of Rounds</mat-label>
+                    <mat-select [formControl]="numberOfRoundsControl">
+                        <ng-container *ngFor="let index of numberOfRounds">
+                            <mat-option [value]="index">{{ index }}</mat-option>
+                        </ng-container>
+                    </mat-select>
+                </mat-form-field>
+                <!-- <gpll-select-control-style [hostClasses]="['cyberpunk']" panelClass="cyberpunk">
+                    <mat-form-field>
+                        <mat-select>
+                            <mat-select-trigger>
+                                ferer
+                                <mat-icon fontIcon="home"></mat-icon>
+                            </mat-select-trigger>
+                            <mat-option>
+                                <mat-icon fontIcon="circle"></mat-icon>
+                            </mat-option>
+                            <mat-option>
+                                <mat-icon fontIcon="home"></mat-icon>
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </gpll-select-control-style> -->
+            </div>
+        </mat-card-content>
+    </form>
+</mat-card>

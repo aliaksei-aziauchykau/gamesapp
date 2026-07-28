@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>{{ 'GameModules.Kroko.SelectWordDialog.Title' | gpllTranslate }}</h1>
+<div mat-dialog-content>
+    <p>{{ 'GameModules.Kroko.SelectWordDialog.Description' | gpllTranslate }}</p>
+</div>
+<div class="flex flex-col gap-y-2" mat-dialog-actions>
+    <ng-container *ngFor="let word of data.words">
+        <button class="select-word w-10/12" mat-raised-button color="primary" [mat-dialog-close]="word" cdkFocusInitial>
+            {{ word }}
+        </button>
+    </ng-container>
+</div>

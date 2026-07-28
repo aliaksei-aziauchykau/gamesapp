@@ -1,0 +1,11 @@
+<div class="with-button-scroll-decorator">
+    <ng-content></ng-content>
+    <shrl-button-to-scroll
+        [ngClass]="{ 'right': position === 'right', 'center': position === 'center' }"
+        [direction]="direction"
+        [mode]="mode"
+        [tooltipText]="tooltipText"
+        [buttonName]="buttonName"
+        [logicAnchorName]="toLogicAnchorName">
+    </shrl-button-to-scroll>
+</div>

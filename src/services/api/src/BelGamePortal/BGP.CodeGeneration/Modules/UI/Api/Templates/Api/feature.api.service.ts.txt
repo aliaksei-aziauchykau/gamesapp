@@ -1,0 +1,11 @@
+
+import { Injectable } from '@angular/core';
+import { {{EntityNamePascal}} } from '@itdl/game-portal/features/{{ModuleName}}/entities';
+import { EntityApiService } from '@itdl/game-portal/http';
+
+@Injectable()
+export class Gpll{{ModuleNamePascal}}ApiService extends EntityApiService<string, {{EntityNamePascal}}> {
+    protected getApiUrl(): string {
+        return '/api/v1/{{ModuleNamePascal}}';
+    }
+}

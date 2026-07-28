@@ -1,0 +1,6 @@
+import { Entity } from '@itdl/game-portal/http';
+
+export class {{EntityNamePascal}} extends Entity<string> {
+    public override key = () => this.{{EntityNameCamel}}Id;
+    public {{EntityNameCamel}}Id!: string;
+}

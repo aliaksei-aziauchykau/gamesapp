@@ -1,0 +1,6 @@
+<ng-container *ngTemplateOutlet="beforeContainerTemplate || beforeContainerTemplateDefault"> </ng-container>
+<ng-content></ng-content>
+<ng-container *ngTemplateOutlet="afterContainerTemplate || afterContainerTemplateDefault"> </ng-container>
+
+<ng-template #afterContainerTemplateDefault></ng-template>
+<ng-template #beforeContainerTemplateDefault></ng-template>

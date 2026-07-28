@@ -1,0 +1,29 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin color($theme) {
+    gpll-header {
+        // Get the large headline font from the theme.
+        a {
+            color: mat.get-theme-color($theme, primary);
+        }
+    }
+}
+
+@mixin typography($theme) {
+    gpll-header {
+        // Get the large headline font from the theme.
+        font: mat.get-theme-typography($theme, headline-large, font);
+        font-size: mat.get-theme-typography($theme, headline-large, font-size);
+    }
+}
+
+@mixin theme($theme) {
+    @if mat.theme-has($theme, color) {
+        @include color($theme);
+    }
+
+    @if mat.theme-has($theme, typography) {
+        @include typography($theme);
+    }
+}

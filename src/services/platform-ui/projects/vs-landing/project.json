@@ -1,0 +1,117 @@
+{
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "name": "vs-landing",
+    "projectType": "application",
+    "generators": {
+        "@schematics/angular:component": {
+            "style": "scss"
+        }
+    },
+    "sourceRoot": "projects/vs-landing/src",
+    "prefix": "vsl",
+    "targets": {
+        "build": {
+            "executor": "@angular-devkit/build-angular:application",
+            "options": {
+                "outputPath": "dist/vs-landing",
+                "index": "projects/vs-landing/src/index.html",
+                "browser": "projects/vs-landing/src/main.ts",
+                "polyfills": ["zone.js"],
+                "tsConfig": "projects/vs-landing/tsconfig.app.json",
+                "inlineStyleLanguage": "scss",
+                "assets": [
+                    {
+                        "glob": "**/*",
+                        "input": "public"
+                    },
+                    {
+                        "glob": "**/*",
+                        "input": "./node_modules/leaflet/dist/images",
+                        "output": "assets/leaflet/"
+                    },
+                    "projects/vs-landing/src/assets",
+                    "projects/vs-landing/src/manifest.webmanifest"
+                ],
+                "styles": [
+                    "projects/vs-landing/src/styles.scss",
+                    "node_modules/cookieconsent/build/cookieconsent.min.css",
+                    "node_modules/leaflet/dist/leaflet.css"
+                ],
+                "scripts": ["node_modules/cookieconsent/build/cookieconsent.min.js"],
+                "server": "projects/vs-landing/src/main.server.ts",
+                "prerender": true,
+                "ssr": {
+                    "entry": "projects/vs-landing/server.ts"
+                }
+            },
+            "configurations": {
+                "production": {
+                    "fileReplacements": [
+                        {
+                            "replace": "projects/vs-landing/src/environments/environment.ts",
+                            "with": "projects/vs-landing/src/environments/environment.prod.ts"
+                        }
+                    ],
+                    "budgets": [
+                        {
+                            "type": "initial",
+                            "maximumWarning": "500kB",
+                            "maximumError": "1MB"
+                        },
+                        {
+                            "type": "anyComponentStyle",
+                            "maximumWarning": "2kB",
+                            "maximumError": "4kB"
+                        }
+                    ],
+                    "outputHashing": "all",
+                    "serviceWorker": "projects/vs-landing/ngsw-config.json"
+                },
+                "development": {
+                    "optimization": false,
+                    "extractLicenses": false,
+                    "sourceMap": true,
+                    "namedChunks": true
+                }
+            },
+            "defaultConfiguration": "production"
+        },
+        "serve": {
+            "executor": "@angular-devkit/build-angular:dev-server",
+            "configurations": {
+                "production": {
+                    "buildTarget": "vs-landing:build:production"
+                },
+                "development": {
+                    "buildTarget": "vs-landing:build:development"
+                }
+            },
+            "options": {
+                "port": 5001,
+                "ssl": true,
+                "sslKey": "projects/vs-landing/ssl/localhost.key",
+                "sslCert": "projects/vs-landing/ssl/localhost.crt"
+            },
+            "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+            "executor": "@angular-devkit/build-angular:extract-i18n"
+        },
+        "test": {
+            "executor": "@angular-devkit/build-angular:karma",
+            "options": {
+                "polyfills": ["zone.js", "zone.js/testing"],
+                "tsConfig": "projects/vs-landing/tsconfig.spec.json",
+                "inlineStyleLanguage": "scss",
+                "assets": [
+                    {
+                        "glob": "**/*",
+                        "input": "public"
+                    }
+                ],
+                "styles": ["projects/vs-landing/src/styles.scss"],
+                "scripts": []
+            }
+        }
+    }
+}

@@ -1,0 +1,15 @@
+<gpll-workspaces-item-fetcher [id]="workspaceId">
+    <ng-template let-workspaces>
+        <gpll-panel [level]="2" [navigationButtonName]="workspaces.name">
+            <ng-template #panel>
+                <mat-nav-list>
+                    <mat-nav-list>
+                        <a mat-list-item [routerLink]="['projects']">Projects</a>
+                    </mat-nav-list>
+                </mat-nav-list>
+            </ng-template>
+            <ng-template #panelContent><router-outlet></router-outlet></ng-template>
+        </gpll-panel>
+    </ng-template>
+</gpll-workspaces-item-fetcher>
+

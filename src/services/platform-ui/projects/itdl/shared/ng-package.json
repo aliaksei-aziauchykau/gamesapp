@@ -1,0 +1,11 @@
+{
+    "$schema": "../../../node_modules/ng-packagr/ng-package.schema.json",
+    "dest": "../../../dist/itdl/shared",
+    "lib": {
+        "entryFile": "public-api.ts"
+    },
+    "assets": [
+        "_theming.scss",
+        "**/*.theme.scss"
+    ]
+}

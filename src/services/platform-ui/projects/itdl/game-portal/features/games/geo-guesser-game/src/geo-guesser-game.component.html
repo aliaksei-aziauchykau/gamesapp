@@ -1,0 +1,15 @@
+<ng-container *rxLet="gameDefinition$; let gameDefinition">
+    <gpll-game-container-socket>
+        <ng-template>
+            <gpll-running-game-container [gameDefName]="gameDefinition.name">
+                <ng-template>
+                    <gpll-geo-guesser-game-socket>
+                        <ng-template>
+                            <gpll-geo-guesser-game-view></gpll-geo-guesser-game-view>
+                        </ng-template>
+                    </gpll-geo-guesser-game-socket>
+                </ng-template>
+            </gpll-running-game-container>
+        </ng-template>
+    </gpll-game-container-socket>
+</ng-container>

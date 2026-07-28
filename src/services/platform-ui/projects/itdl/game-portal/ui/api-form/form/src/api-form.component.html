@@ -1,0 +1,39 @@
+<ng-container *rxLet="config$; let config">
+    <ng-container *rxLet="isLoading$; let isLoading">
+        <gpll-overlay-loader [targetElementRef]="matCardElementRef.elementRef" *ngIf="isLoading"> </gpll-overlay-loader>
+    </ng-container>
+    <mat-card #matCardElementRef="shrlElementRef" shrlElementRef class="api-form">
+        <form [formGroup]="form" class="flex flex-col justify-between h-full">
+            <mat-card-header>
+                <mat-card-title>Title</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="api-form-content flex flex-col gap-x-4">
+                    <ng-container *ngFor="let schema of schemas">
+                        <gpll-control-loader [schema]="schema" [value]="model[schema.name]"></gpll-control-loader>
+                    </ng-container>
+                </div>
+            </mat-card-content>
+            <mat-card-actions class="flex-row-reverse gap-x-4 justify-between">
+                <button
+                    class="grow-[2]"
+                    type="button"
+                    mat-raised-button
+                    color="primary"
+                    mat-button
+                    (click)="actions.submit(form.value)">
+                    {{ config.submitButtonConfig.name }}
+                </button>
+                <button
+                    class="grow-[2]"
+                    type="button"
+                    mat-raised-button
+                    color="primary"
+                    mat-button
+                    (click)="actions.cancel()">
+                    {{ config.cancelButtonConfig.name }}
+                </button>
+            </mat-card-actions>
+        </form>
+    </mat-card>
+</ng-container>

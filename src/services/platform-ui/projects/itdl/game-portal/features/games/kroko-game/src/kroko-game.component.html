@@ -1,0 +1,25 @@
+<ng-container *rxLet="gameDefinition$; let gameDefinition">
+    <gpll-game-container-socket>
+        <ng-template>
+            <gpll-running-game-container [gameDefName]="gameDefinition.name">
+                <ng-template>
+                    <gpll-kroko-game-socket>
+                        <ng-template>
+                            <gpll-kroko-game-view></gpll-kroko-game-view>
+                        </ng-template>
+                    </gpll-kroko-game-socket>
+                </ng-template>
+            </gpll-running-game-container>
+        </ng-template>
+    </gpll-game-container-socket>
+</ng-container>
+<!-- <ngx-audio-player
+    [autoPlay]="false"
+    muted="muted"
+    [playlist]="playlist"
+    [disablePositionSlider]="true"
+    [displayRepeatControls]="true"
+    [displayVolumeControls]="true"
+    [displayVolumeSlider]="true"
+    [displayTitle]="true">
+</ngx-audio-player> -->

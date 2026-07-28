@@ -1,0 +1,92 @@
+using BGP.{{DomainName}}.Application;
+using BGP.{{DomainName}}.Database;
+using BGP.{{DomainName}}.Domain;
+using BGP.{{DomainName}}.Microservice.Interfaces;
+using BGP.{{DomainName}}.OData.Endpoints;
+using BGP.{{DomainName}}.ODataEndpoints;
+using BGP.Shared.Libs.Microservice;
+using BGP.Shared.Libs.Microservice.BuildConfig;
+using BGP.Shared.Modules.CrudCommands;
+using BGP.Shared.Modules.DotNetEnv;
+using BGP.Shared.Modules.EntityConfiguration;
+using BGP.Shared.Modules.MapCommands;
+using BGP.Shared.Modules.Mediator;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+
+namespace BGP.{{DomainName}}.Microservice;
+
+public class {{DomainName}}MicroserviceBuilder : MicroserviceBuilder
+{
+    public static IMicroserviceBuilder Create()
+    {
+        return new {{DomainName}}MicroserviceBuilder();
+    }
+
+    public override IMicroserviceBuilder Build(IMicroserviceBuildConfig buildConfig)
+    {
+        var configurationManager = buildConfig.ConfigurationManager;
+        var rootServiceCollection = buildConfig.ServiceCollection;
+        var environment = buildConfig.Environment;
+        var services = this.serviceCollection;
+
+        DotNetEnvModule
+            .Create()
+            .ReadEnvFiles(configurationManager, environment, "../BGP.{{DomainName}}.Microservice/", "{{DomainName}}");
+
+        // TODO Remove unused modules or reconfig
+        MediatorModule
+            .Create()
+            .AddServiceCollection(services)
+            .AddMediator({{DomainName}}ApplicationAssemblyHelper.GetAssembly());
+
+        MapCommandsModule
+            .Create()
+            .AddServiceCollection(services)
+            .AddMappings({{DomainName}}ODataEndpointsAssemblyHelper.GetAssembly());
+            .AddMapCommands({{DomainName}}ODataEndpointsAssemblyHelper.GetAssembly());
+
+        CrudCommandsModule
+            .Create()
+            .AddServiceCollection(services)
+            .AddGenericServices()
+            .AddDbContextSource(typeof({{DomainName}}DbContext))
+            .AddCrudCommands({{DomainName}}DomainAssemblyHelper.GetAssembly());
+
+        FormEntitySchemasModule
+            .Create()
+            .AddServiceCollection(services)
+            .AddCommands({{DomainName}}DomainAssemblyHelper.GetAssembly())
+            .AddProviders({{DomainName}}ApplicationAssemblyHelper.GetAssembly());
+
+        {{DomainName}}ApplicationModule
+            .Create()
+            .AddServiceCollection(services)
+            .AddModuleServices();
+
+        {{DomainName}}DatabaseModule
+            .Create()
+            .AddServiceCollection(services)
+            .AddSqlDbContext<{{DomainName}}DbContext>(configurationManager, {{DomainName}}DatabaseAssemblyHelper.GetAssembly())
+            .AddMigrateAndSeedServices();
+
+        {{DomainName}}ODataEndpointsModule
+            .Create()
+            .AddServiceCollection(rootServiceCollection)
+            .AddEndpoints(configurationManager, environment);
+
+        var serviceProvider = this.serviceCollection.BuildServiceProvider();
+
+        this._microservice = new {{DomainName}}Microservice(serviceProvider);
+
+        return this;
+    }
+
+    public override IMicroserviceBuilder Register(IServiceCollection rootServiceCollection)
+    {
+        rootServiceCollection.AddSingleton(typeof(I{{DomainName}}Microservice), this.Microservice);
+
+        return this;
+    }
+}

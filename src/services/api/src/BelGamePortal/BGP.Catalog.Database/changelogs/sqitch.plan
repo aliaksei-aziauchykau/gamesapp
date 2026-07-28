@@ -1,0 +1,6 @@
+%syntax-version=1.0.0
+%project=catalog-project
+
+apps/Apps.Schema                                2024-09-24T13:45:43Z root <root@8b5c6dabe682> # Add schema for all flipr objects.
+apps/Products/Products.Table                    2024-09-24T13:45:43Z root <root@8b5c6dabe682> # Add schema for all flipr objects.
+apps/Products/GetAllProducts.Function           2024-09-24T13:45:43Z root <root@8b5c6dabe682> # Add schema for all flipr objects.

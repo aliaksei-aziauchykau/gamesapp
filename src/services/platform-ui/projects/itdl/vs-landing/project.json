@@ -1,0 +1,32 @@
+{
+    "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+    "name": "@itdl/vs-landing",
+    "projectType": "library",
+    "sourceRoot": "projects/itdl/vs-landing/src",
+    "prefix": "vsl",
+    "targets": {
+        "build": {
+            "executor": "@angular-devkit/build-angular:ng-packagr",
+            "options": {
+                "project": "projects/itdl/vs-landing/ng-package.json"
+            },
+            "configurations": {
+                "production": {
+                    "tsConfig": "projects/itdl/vs-landing/tsconfig.lib.prod.json"
+                },
+                "development": {
+                    "tsConfig": "projects/itdl/vs-landing/tsconfig.lib.json"
+                }
+            },
+            "defaultConfiguration": "production",
+            "outputs": ["{workspaceRoot}/dist/itdl/vs-landing"]
+        },
+        "test": {
+            "executor": "@angular-devkit/build-angular:karma",
+            "options": {
+                "tsConfig": "projects/itdl/vs-landing/tsconfig.spec.json",
+                "polyfills": ["zone.js", "zone.js/testing"]
+            }
+        }
+    }
+}

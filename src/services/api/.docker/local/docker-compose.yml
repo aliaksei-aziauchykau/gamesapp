@@ -17,11 +17,16 @@ services:
       - KEYCLOAK_AUDIENCE=${KEYCLOAK_AUDIENCE}
       - KEYCLOAK_REQUIRE_HTTPS_METADATA=${KEYCLOAK_REQUIRE_HTTPS_METADATA}
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:80/health"]
+      test: ["CMD", "curl", "-f", "http://localhost:80/health/ready"]
       interval: 30s
-      timeout: 3s
-      retries: 3
-      start_period: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 120s
     networks:
       - gamesapp-network
     restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.gamesapp-api.rule=Host(`api.gamesapp.local.projects.volnyja-siervisy.site`)"
+      - "traefik.http.routers.gamesapp-api.entrypoints=web"
+      - "traefik.http.services.gamesapp-api.loadbalancer.server.port=80"

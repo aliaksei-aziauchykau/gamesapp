@@ -1,0 +1,23 @@
+:host.button-to-scroll {
+    &--light {
+        button {
+            opacity: 0.8;
+            box-shadow: none;
+
+            &.mat-mdc-fab {
+                --mdc-fab-container-color: transparent;
+            }
+
+            &:hover {
+                opacity: 1;
+            }
+
+            &.mdc-tooltip__surface {
+                background-color: transparent;
+            }
+        }
+    }
+
+    &--dark {
+    }
+}

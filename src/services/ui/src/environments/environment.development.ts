@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:5100',
+  apiUrl: 'http://api.gamesapp.local.projects.volnyja-siervisy.site:9080',
   keycloak: {
     issuer: 'http://localhost:8180/realms/gamesapp',
     clientId: 'gamesapp-spa',

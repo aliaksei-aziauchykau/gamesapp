@@ -1,0 +1,3 @@
+# Dev UI (hot reload); implementation lives under ui service.
+include:
+  - path: src/services/ui/.docker/local/docker-compose.dev.yml

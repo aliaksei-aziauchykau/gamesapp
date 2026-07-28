@@ -1,0 +1,53 @@
+<table mat-table [dataSource]="data" multiTemplateDataRows class="mat-elevation-z8">
+    <!-- <ng-container *ngTemplateOutlet="easy"></ng-container> -->
+    <ng-template>
+        <ng-container [matColumnDef]="'name'">
+            <ng-container *matHeaderCellDef>
+                <th mat-header-cell class="capitalize">Name</th>
+            </ng-container>
+            <ng-container *matCellDef="let element">
+                <td mat-cell>{{ element['name'] }}</td>
+            </ng-container>
+        </ng-container>
+        <ng-container [matColumnDef]="'description'">
+            <ng-container *matHeaderCellDef>
+                <th mat-header-cell class="capitalize">Description</th>
+            </ng-container>
+            <ng-container *matCellDef="let element">
+                <td mat-cell>{{ element['description'] }}</td>
+            </ng-container>
+        </ng-container>
+        <ng-container>
+            <tr mat-header-row *matHeaderRowDef="['name', 'description']"></tr>
+        </ng-container>
+        <ng-container>
+            <tr mat-row *matRowDef="let element; columns: ['name', 'description']" class="element-row"></tr>
+        </ng-container>
+    </ng-template>
+</table>
+
+<ng-template #easy>
+    ololo
+    <ng-container [matColumnDef]="'name'">
+        <ng-container *matHeaderCellDef>
+            <th mat-header-cell class="capitalize">Name</th>
+        </ng-container>
+        <ng-container *matCellDef="let element">
+            <td mat-cell>{{ element['name'] }}</td>
+        </ng-container>
+    </ng-container>
+    <ng-container [matColumnDef]="'description'">
+        <ng-container *matHeaderCellDef>
+            <th mat-header-cell class="capitalize">Description</th>
+        </ng-container>
+        <ng-container *matCellDef="let element">
+            <td mat-cell>{{ element['description'] }}</td>
+        </ng-container>
+    </ng-container>
+    <ng-container>
+        <tr mat-header-row *matHeaderRowDef="['name', 'description']"></tr>
+    </ng-container>
+    <ng-container>
+        <tr mat-row *matRowDef="let element; columns: ['name', 'description']" class="element-row"></tr>
+    </ng-container>
+</ng-template>

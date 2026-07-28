@@ -1,0 +1,12 @@
+# Dev image: install node_modules; app sources are bind-mounted at runtime.
+FROM node:20-alpine
+WORKDIR /app
+
+COPY src/services/ui/package.json src/services/ui/package-lock.json ./
+RUN npm ci --legacy-peer-deps
+
+COPY src/services/ui/ ./
+
+EXPOSE 4200
+
+CMD ["npm", "run", "start", "--", "--host", "0.0.0.0", "--port", "4200", "--poll", "2000"]

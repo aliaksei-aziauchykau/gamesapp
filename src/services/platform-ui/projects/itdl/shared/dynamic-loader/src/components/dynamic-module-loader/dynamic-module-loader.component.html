@@ -1,0 +1,10 @@
+<ng-container *rxLet="config$; let config; let s = suspense">
+    <!-- {{ config.inputs | json }} -->
+    <ng-container
+        *ngComponentOutlet="
+            config.entity;
+            inputs: config.inputs;
+            ngModule: config.module;
+            injector: config.injector
+        "></ng-container>
+</ng-container>

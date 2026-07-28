@@ -1,0 +1,19 @@
+<mat-card class="game-item">
+    <mat-card-content>
+        <div class="flex flex-row justify-between">
+            <div class="game-item__name">{{ game.name }}</div>
+            <div class="game-item__actions flex flex-row">
+                <div class="game-item__action px-2">
+                    <button mat-raised-button [disabled]="!game.code" color="primary" (click)="navigateToGame()">
+                        JOIN
+                    </button>
+                </div>
+                <div class="game-item__action px-2">
+                    <button mat-raised-button [disabled]="!game.code" color="warn" (click)="navigateToLobby()">
+                        LOBBY
+                    </button>
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

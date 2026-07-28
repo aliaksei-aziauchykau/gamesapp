@@ -1,0 +1,7 @@
+<ng-container *rxLet="countdown$; let countdown">
+    <div @shake class="countdown-timer">
+        <span class="minutes"> {{ countdown.minutes }}</span>
+        <span class="delimeter">:</span>
+        <span class="seconds">{{ countdown.seconds }}</span>
+    </div>
+</ng-container>

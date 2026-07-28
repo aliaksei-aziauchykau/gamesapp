@@ -1,0 +1,29 @@
+<table mat-table [dataSource]="data" multiTemplateDataRows class="mat-elevation-z8">
+    <ng-container *ngFor="let columnDef of config.columnsDefs">
+        <ng-container
+            *ngComponentOutlet="
+                columnDef.viewComponentConfig.component;
+                inputs: columnDef.viewComponentConfig.inputs;
+                injector: columnDef.viewComponentConfig.injector
+            ">
+        </ng-container>
+    </ng-container>
+    <ng-container *ngFor="let rowDef of config.rowDefs">
+        <ng-container
+            *ngComponentOutlet="
+                rowDef.viewConfig.component;
+                inputs: rowDef.viewConfig.inputs;
+                injector: rowDef.viewConfig.injector
+            ">
+        </ng-container>
+    </ng-container>
+    <ng-container *ngFor="let headerRowDef of config.headerRowDefs">
+        <ng-container
+            *ngComponentOutlet="
+                headerRowDef.viewConfig.component;
+                inputs: headerRowDef.viewConfig.inputs;
+                injector: headerRowDef.viewConfig.injector
+            ">
+        </ng-container>
+    </ng-container>
+</table>

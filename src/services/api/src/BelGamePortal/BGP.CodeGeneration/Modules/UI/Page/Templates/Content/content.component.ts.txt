@@ -1,0 +1,10 @@
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { RxState } from '@rx-angular/state';
+
+@Component({
+    selector: 'gpll-{{ModuleName}}-content',
+    templateUrl: './{{ModuleName}}-content.component.html',
+    styleUrls: ['./{{ModuleName}}-content.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class Gpll{{ModuleNamePascal}}ContentComponent {}

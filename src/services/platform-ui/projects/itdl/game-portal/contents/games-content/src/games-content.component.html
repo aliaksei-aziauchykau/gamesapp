@@ -1,0 +1,17 @@
+<div class="container mx-auto px-10 py-5">
+    <div class="flex flex-col">
+        <ng-container *rxLet="gameDefinition$; let gameDefinition">
+            <div class="flex justify-end">
+                <gpll-create-game-button [gameDefinitionId]="gameDefinition.id"></gpll-create-game-button>
+            </div>
+        </ng-container>
+
+        <ng-container *rxLet="games$; let games">
+            <shrl-foreach [items]="games">
+                <ng-template let-game>
+                    <gpll-game-item class="mx-5" [game]="game"></gpll-game-item>
+                </ng-template>
+            </shrl-foreach>
+        </ng-container>
+    </div>
+</div>

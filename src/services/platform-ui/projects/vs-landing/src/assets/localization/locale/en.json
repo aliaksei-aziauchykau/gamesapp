@@ -1,0 +1,29 @@
+{
+    "Header": {
+        "LogoName": "Game Portal",
+        "NavigationLinks": {
+            "Home": "Home",
+            "Games": "Games"
+        }
+    },
+    "Workspace": {
+        "SideNavPanel": {
+            "Open": "Open"
+        }
+    },
+    "GameModules": {
+        "Kroko": {
+            "PlayersListComponent": {
+                "Players": "Players"
+            },
+            "ChatComponent": {
+                "Chat": "Chat",
+                "Send": "Send"
+            },
+            "SelectWordDialog": {
+                "Title": "What do you like to draw?",
+                "Description": "Please select on three suggested word"
+            }
+        }
+    }
+}

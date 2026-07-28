@@ -1,0 +1,27 @@
+services:
+  api:
+    build:
+      dockerfile: src/services/api/.docker/local/Dockerfile.dev
+    volumes:
+      - ${ROOT_WSL_PATH}/src/services/api:/src/services/api:cached
+    environment:
+      - DOTNET_USE_POLLING_FILE_WATCHER=true
+      - DOTNET_WATCH_RESTART_ON_RUDE_EDIT=true
+    command:
+      - dotnet
+      - watch
+      - run
+      - --project
+      - /src/services/api/src/GAA.Presentation/GAA.Presentation.csproj
+      - --no-launch-profile
+      - --urls
+      - http://+:80
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80/health/ready"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+      start_period: 120s
+    depends_on:
+      postgresql:
+        condition: service_healthy

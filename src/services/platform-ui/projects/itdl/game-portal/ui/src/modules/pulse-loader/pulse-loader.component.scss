@@ -1,0 +1,31 @@
+@keyframes animation-pulse {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.wrapper {
+    display: block;
+    background-color: rgba(230, 225, 230, 0.13);
+    height: 5.2em;
+    border-radius: 24px;
+    -webkit-animation: animation-pulse 1.5s ease-in-out 0.5s infinite;
+    animation: animation-pulse 1.5s ease-in-out 0.5s infinite;
+    margin-right: 16px;
+}
+
+:host(.header) {
+    .wrapper {
+        border-radius: 0px;
+        height: 64px;
+        margin-right: 0px;
+    }
+}

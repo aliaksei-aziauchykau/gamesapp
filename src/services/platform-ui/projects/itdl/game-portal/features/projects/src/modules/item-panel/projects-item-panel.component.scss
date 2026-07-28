@@ -1,0 +1,50 @@
+:host {
+    display: block;
+}
+
+.user-space {
+    --visible-drawer-space: 70px;
+    mat-drawer-container {
+        min-height: calc(100vh - 64px);
+
+        --mat-sidenav-container-width: 200px;
+    }
+    mat-drawer {
+        visibility: visible !important; // always visible
+    }
+
+    button.sidenav-toggle {
+        position: absolute;
+        // top: 60px;
+        left: 155px;
+        z-index: 4;
+    }
+}
+
+.navigation-links {
+    margin-top: 60px;
+}
+
+::ng-deep {
+    .user-space {
+        .mat-drawer {
+            overflow-y: visible;
+            &[style*='visibility: hidden'] {
+                display: block;
+            }
+        }
+        // .mat-drawer {
+        //     &.mat-drawer-side {
+        //         transform: translate3d(calc(-100% + var(--visible-drawer-space)), 0, 0);
+        //         visibility: visible !important; // always visible
+        //     }
+        // }
+
+        // .mat-drawer-content {
+        //     margin-left: var(--visible-drawer-space);
+        // }
+    }
+}
+
+// --8<-- //
+

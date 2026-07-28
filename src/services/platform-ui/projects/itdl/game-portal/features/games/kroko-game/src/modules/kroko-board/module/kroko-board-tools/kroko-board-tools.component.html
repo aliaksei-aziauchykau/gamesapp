@@ -1,0 +1,79 @@
+<mat-card>
+    <form [formGroup]="form" [shrlFormDataSync]="{ form: form, model: null }">
+        <mat-card-content>
+            <div class="flex flex-row items-center gap-x-4 justify-between">
+                <div class="flex flex-row items-center">
+                    <button mat-icon-button (click)="undo()" aria-label="Undo" [disabled]="isUndoDisabled$ | async">
+                        <mat-icon>undo</mat-icon>
+                    </button>
+                    <button mat-icon-button (click)="redo()" aria-label="Redo" [disabled]="isRedoDisabled$ | async">
+                        <mat-icon>redo</mat-icon>
+                    </button>
+
+                    <button mat-icon-button (click)="clear()" aria-label="clear">
+                        <mat-icon>cancel_presentation</mat-icon>
+                    </button>
+
+                    <button mat-icon-button ngx-colors-trigger [formControl]="strokeColorControl" aria-label="palette">
+                        <mat-icon
+                            [style.color]="strokeColorControl.valueChanges | async"
+                            aria-hidden="false"
+                            aria-label="Example home icon"
+                            fontIcon="palette">
+                        </mat-icon>
+                    </button>
+                    <!-- <div
+                        class="example-palette-button"
+                        ngx-colors-trigger
+                        [formControl]="strokeColorControl"
+                        [style.color]="strokeColorControl.valueChanges | async">
+                        <mat-icon  aria-hidden="false" aria-label="Example home icon" fontIcon="palette"> </mat-icon>
+                    </div> -->
+
+                    <button
+                        class="flex"
+                        *rxLet="toolIcon$; let toolIcon"
+                        mat-icon-button
+                        [matMenuTriggerFor]="menu"
+                        aria-label="Example icon-button with a menu">
+                        <mat-icon>{{ toolIcon }}</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="setTool('pen')">
+                            <mat-icon>{{ toolIcons['pen'] }}</mat-icon>
+                        </button>
+                        <button mat-menu-item (click)="setTool('circle')">
+                            <mat-icon>{{ toolIcons['circle'] }}</mat-icon>
+                        </button>
+                        <button mat-menu-item (click)="setTool('donught')">
+                            <mat-icon>{{ toolIcons['donught'] }}</mat-icon>
+                        </button>
+                    </mat-menu>
+                </div>
+
+                <ng-container *rxLet="timer$; let timer">
+                    <ng-container *ngIf="timer">
+                        <gpll-countdown-timer class="kroko-countdown" [date]="timer"></gpll-countdown-timer>
+                    </ng-container>
+                </ng-container>
+
+                <!-- <gpll-select-control-style [hostClasses]="['cyberpunk']" panelClass="cyberpunk">
+                    <mat-form-field>
+                        <mat-select>
+                            <mat-select-trigger>
+                                ferer
+                                <mat-icon fontIcon="home"></mat-icon>
+                            </mat-select-trigger>
+                            <mat-option>
+                                <mat-icon fontIcon="circle"></mat-icon>
+                            </mat-option>
+                            <mat-option>
+                                <mat-icon fontIcon="home"></mat-icon>
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </gpll-select-control-style> -->
+            </div>
+        </mat-card-content>
+    </form>
+</mat-card>

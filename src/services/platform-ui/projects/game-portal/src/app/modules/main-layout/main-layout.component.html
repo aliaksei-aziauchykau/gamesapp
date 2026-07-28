@@ -1,0 +1,11 @@
+<shrl-layout>
+    <ng-template #headerTemplate let-sidenav>
+        <gpll-header [sidenav]="sidenav"></gpll-header>
+    </ng-template>
+    <div class="page-content">
+        <router-outlet></router-outlet>
+    </div>
+    <ng-template #footerTemplate>
+        <gpll-footer></gpll-footer>
+    </ng-template>
+</shrl-layout>

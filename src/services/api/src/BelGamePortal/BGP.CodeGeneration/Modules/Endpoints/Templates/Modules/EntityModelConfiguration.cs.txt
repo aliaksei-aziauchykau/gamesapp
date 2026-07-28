@@ -1,0 +1,19 @@
+
+using Asp.Versioning;
+using Asp.Versioning.OData;
+using BGP.{{DomainName}}.Domain.Entities;
+using Microsoft.OData.ModelBuilder;
+
+namespace BGP.{{DomainName}}.OData.Endpoints.Modules.{{EntityName}}s;
+
+public class {{EntityName}}sModelConfiguration : IModelConfiguration
+{
+    public void Apply(ODataModelBuilder builder, ApiVersion apiVersion, string routePrefix)
+    {
+        var set = builder.EntitySet<{{EntityName}}>("{{EntityName}}s");
+        var type = set.EntityType;
+
+        type.HasKey(o => o.Id);
+        type.Select().Expand().Filter().Count();
+    }
+}

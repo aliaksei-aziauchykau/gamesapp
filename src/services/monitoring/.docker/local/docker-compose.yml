@@ -12,3 +12,8 @@ services:
     networks:
       - gamesapp-network
     restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.gamesapp-monitoring.rule=Host(`monitoring.gamesapp.local.projects.volnyja-siervisy.site`)"
+      - "traefik.http.routers.gamesapp-monitoring.entrypoints=web"
+      - "traefik.http.services.gamesapp-monitoring.loadbalancer.server.port=8080"

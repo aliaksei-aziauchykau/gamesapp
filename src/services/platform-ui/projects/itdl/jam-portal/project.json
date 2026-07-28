@@ -1,0 +1,32 @@
+{
+    "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+    "name": "@itdl/jam-portal",
+    "projectType": "library",
+    "sourceRoot": "projects/itdl/jam-portal/src",
+    "prefix": "gpll",
+    "targets": {
+        "build": {
+            "executor": "@angular-devkit/build-angular:ng-packagr",
+            "options": {
+                "project": "projects/itdl/jam-portal/ng-package.json"
+            },
+            "configurations": {
+                "production": {
+                    "tsConfig": "projects/itdl/jam-portal/tsconfig.lib.prod.json"
+                },
+                "development": {
+                    "tsConfig": "projects/itdl/jam-portal/tsconfig.lib.json"
+                }
+            },
+            "defaultConfiguration": "production",
+            "outputs": ["{workspaceRoot}/dist/itdl/jam-portal"]
+        },
+        "test": {
+            "executor": "@angular-devkit/build-angular:karma",
+            "options": {
+                "tsConfig": "projects/itdl/jam-portal/tsconfig.spec.json",
+                "polyfills": ["zone.js", "zone.js/testing"]
+            }
+        }
+    }
+}

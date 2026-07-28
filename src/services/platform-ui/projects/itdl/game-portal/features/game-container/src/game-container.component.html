@@ -1,0 +1,43 @@
+<div class="flex flex-col gap-y-4">
+    <div *ngIf="!isPanelHidden" class="w-full">
+        <mat-card>
+            <mat-card-content>
+                <div class="flex flex-row gap-x-4">
+                    <mat-icon
+                        *rxLet="isRunningIndicator$; let isRunningIndicator"
+                        aria-hidden="false"
+                        aria-label="Example home icon"
+                        fontIcon="rocket_launch"
+                        [ngClass]="isRunningIndicator">
+                    </mat-icon>
+
+                    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"> </mat-icon>
+
+                    <div *rxLet="gameStateName$; let gameStateName">
+                        {{ gameStateName }}
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="w-full">
+        <ng-container *ngIf="onContainerRunning">
+            <ng-container *rxLet="isRunning$; let isRunning">
+                <ng-container *ngIf="isRunning">
+                    <ng-container *ngTemplateOutlet="onContainerRunning"></ng-container>
+                </ng-container>
+            </ng-container>
+        </ng-container>
+
+        <ng-container *ngIf="onContainerCreated">
+            <ng-container *rxLet="isCreated$; let isCreated">
+                <ng-container *ngIf="isCreated">
+                    <ng-container *ngTemplateOutlet="onContainerCreated"></ng-container>
+                </ng-container>
+            </ng-container>
+        </ng-container>
+    </div>
+</div>
+<!-- <div>
+        <p>IsRunning {{ gameContainerState.isRunning }}</p>
+    </div> -->

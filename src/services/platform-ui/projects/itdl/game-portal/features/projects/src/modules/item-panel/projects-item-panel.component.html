@@ -1,0 +1,15 @@
+<gpll-projects-item-fetcher [id]="projectId">
+    <ng-template let-project>
+        <gpll-panel [level]="4" [navigationButtonName]="project.name">
+            <ng-template #panel>
+                <mat-nav-list>
+                    <mat-nav-list>
+                        <a mat-list-item [routerLink]="['projects']">Projects</a>
+                    </mat-nav-list>
+                </mat-nav-list>
+            </ng-template>
+            <ng-template #panelContent><router-outlet></router-outlet></ng-template>
+        </gpll-panel>
+    </ng-template>
+</gpll-projects-item-fetcher>
+

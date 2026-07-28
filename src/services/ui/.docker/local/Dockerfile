@@ -6,7 +6,7 @@ COPY src/services/ui/package.json src/services/ui/package-lock.json ./
 RUN npm ci
 
 COPY src/services/ui/ ./
-RUN npm run build
+RUN npm run build -- --configuration=local
 
 FROM nginx:alpine
 WORKDIR /usr/share/nginx/html

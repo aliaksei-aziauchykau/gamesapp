@@ -1,0 +1,9 @@
+using BGP.{{DomainName}}.Domain.Entities;
+using BGP.Shared.Libs.Mappings.Mappings;
+
+namespace BGP.{{DomainName}}.OData.Endpoints.Modules.{{EntityName}}s;
+
+public class {{EntityName}}CreateDto : IMapTo<{{EntityName}}>
+{
+    // TODO - Add props
+}

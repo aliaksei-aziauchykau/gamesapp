@@ -1,0 +1,20 @@
+
+
+using BGP.{{DomainName}}.Database;
+using BGP.{{DomainName}}.Domain.Entities;
+using BGP.Shared.Libs.Database.DbContextInitializer;
+
+public class {{EntityName}}sDbContextSeeder : IDbContextSeeder
+{
+    private readonly {{DomainName}}DbContext _context;
+
+    public {{EntityName}}sDbContextSeeder({{DomainName}}DbContext context)
+    {
+        _context = context;
+    }
+
+    public async Task SeedAsync()
+    {
+        // TODO
+    }
+}

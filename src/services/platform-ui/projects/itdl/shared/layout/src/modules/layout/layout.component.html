@@ -1,0 +1,31 @@
+<mat-sidenav-container class="example-sidenav-container">
+    <mat-sidenav #sidenav (keydown.escape)="sidenav.close()"> Sidebar </mat-sidenav>
+    <mat-sidenav-content>
+        <ng-container *ngIf="(headerTemplate$ | async) || headerTemplate || headerTemplateDefault; let headerTemplate">
+            <ng-container *ngTemplateOutlet="headerTemplate; context: { $implicit: sidenav }"> </ng-container>
+        </ng-container>
+        <ng-container
+            *ngIf="
+                (beforeContentTemplate$ | async) || beforeContentTemplate || beforeContentTemplateDefault;
+                let beforeContentTemplate
+            ">
+            <ng-container *ngTemplateOutlet="beforeContentTemplate"> </ng-container>
+        </ng-container>
+        <ng-content></ng-content>
+        <ng-container
+            *ngIf="
+                (afterContentTemplate$ | async) || afterContentTemplate || afterContentTemplateDefault;
+                let afterContentTemplate
+            ">
+            <ng-container *ngTemplateOutlet="afterContentTemplate"> </ng-container>
+        </ng-container>
+        <ng-container *ngIf="(footerTemplate$ | async) || footerTemplate || footerTemplateDefault; let footerTemplate">
+            <ng-container *ngTemplateOutlet="footerTemplate"> </ng-container>
+        </ng-container>
+
+        <ng-template #headerTemplateDefault></ng-template>
+        <ng-template #afterContentTemplateDefault></ng-template>
+        <ng-template #beforeContentTemplateDefault></ng-template>
+        <ng-template #footerTemplateDefault></ng-template>
+    </mat-sidenav-content>
+</mat-sidenav-container>

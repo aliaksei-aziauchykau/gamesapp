@@ -1,0 +1,17 @@
+<div class="sticker-board" cdkDropList (cdkDropListDropped)="drop($event)">
+    <div class="sticker" *ngFor="let sticker of stickers">
+        <mat-card cdkDragBoundary=".sticker-board" cdkDrag>
+            <mat-card-content>
+                {{ sticker.content }}
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-button (click)="deleteSticker(sticker)">Delete</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>
+
+<mat-form-field class="sticker-input">
+    <input matInput placeholder="Enter note text" [(ngModel)]="stickerContent" />
+</mat-form-field>
+<button mat-raised-button color="primary" (click)="addSticker()">Add Note</button>

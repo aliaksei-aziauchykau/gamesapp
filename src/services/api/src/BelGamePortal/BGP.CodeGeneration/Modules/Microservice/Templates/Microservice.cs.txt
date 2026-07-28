@@ -1,0 +1,8 @@
+using BGP.{{DomainName}}.Microservice.Interfaces;
+using BGP.Shared.Libs.Microservice;
+
+namespace BGP.{{DomainName}}.Microservice;
+
+public class {{DomainName}}Microservice(IServiceProvider serviceProvider) : BaseMicroservice(serviceProvider), I{{DomainName}}Microservice
+{
+}

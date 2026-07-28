@@ -1,0 +1,5 @@
+# Merged last by Deploy-GamesApp.ps1 so external network name wins.
+networks:
+  gamesapp-network:
+    name: ${GAMESAPP_NETWORK_NAME:-vs-gamesapp-local-network}
+    external: true
