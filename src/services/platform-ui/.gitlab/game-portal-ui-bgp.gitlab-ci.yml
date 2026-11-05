@@ -40,7 +40,7 @@ build-bgp-ui:
   before_script:
     - apk update && apk add git
   script:
-    - git clone https://$GIT_TOKEN@github.com/aliaksei-aziauchykau/volnyja-siervisy.git $LIBRARY_PATH
+    - git clone https://x-access-token:$GIT_TOKEN@github.com/aliaksei-aziauchykau/volnyja-siervisy.git $LIBRARY_PATH
     - cd $LIBRARY_PATH
     - echo "$PRREG_REGISTRY_PASSWORD" | docker login -u "$PRREG_REGISTRY_USER" --password-stdin "$PRREG_REGISTRY"
     - docker build -f $DOCKER_FILE_PATH -t "$IMAGE" $DOCKER_CONTEXT_PATH
